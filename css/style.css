@@ -28,6 +28,7 @@ body.active {
   --bg-color: #0f0c27;
 }
 body {
+  overflow-x: hidden;
   background: var(--bg-color);
   color: var(--text-color);
 }
@@ -196,6 +197,9 @@ header.shadow {
   align-items: center;
   padding: 1rem 0;
   margin-bottom: 1rem;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 .bars-box h3,
 span {

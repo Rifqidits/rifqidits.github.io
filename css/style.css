@@ -15,7 +15,7 @@
   --bg-color: #fff;
   --text-color: #0f0c27;
   --hover: hsl(260, 100%, 51%);
- 
+
   --big-font: 3.2rem;
   --medium-font: 1.8rem;
   --p-font: 0.941rem;
@@ -42,7 +42,7 @@ body {
 .heading h2 {
   font-size: 30px;
 }
- 
+
 .heading span {
   font-size: var(--p-font);
   color: rgb(2, 166, 70);
@@ -145,7 +145,7 @@ header.shadow {
 .btn:hover {
   background: var(--hover);
 }
- 
+
 
 .about-container {
   display: grid;
@@ -153,7 +153,7 @@ header.shadow {
   gap: 1rem;
   margin-top: 2rem;
 }
- 
+
 .about-img img {
   width: 80%;
   border-radius: 0.5rem;
@@ -184,7 +184,6 @@ header.shadow {
   align-items: center;
   gap: 2rem;
   margin-top: 4rem;
-  max-width: 100%;
 }
 .completions-img img {
   width: 80%;
@@ -223,7 +222,6 @@ span {
   height: 0.5rem;
   background: var(--main-color);
   border-radius: 0.5rem;
-  max-width: 100%;
 }
 .downscaling-bar {
   width: 3%;
@@ -500,10 +498,5 @@ form textarea {
   }
   .contact-button{
     margin-left: 25%;
-  }
-}
-@media (max-width: 768px) {
-  .completions-container {
-      grid-template-columns: 1fr; /* Single column layout on smaller screens */
   }
 }

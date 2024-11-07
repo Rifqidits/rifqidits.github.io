@@ -459,7 +459,7 @@ form textarea {
   }
   .completions-img {
     padding-top: 2rem;
-    display: flex;
+    /* display: flex; */
     justify-content: center;
   }
   .contact-form form{
@@ -492,5 +492,10 @@ form textarea {
   }
   .contact-button{
     margin-left: 25%;
+  }
+}
+@media (max-width: 768px) {
+  .completions-container {
+      grid-template-columns: 1fr; /* Single column layout on smaller screens */
   }
 }

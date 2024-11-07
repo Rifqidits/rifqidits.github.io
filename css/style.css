@@ -185,9 +185,8 @@ header.shadow {
   gap: 2rem;
   margin-top: 4rem;
   max-width: 100%;
-  overflow-x: hidden;
 }
-.completios-img img {
+.completions-img img {
   width: 80%;
   padding-left: 4rem;
   object-position: center;
@@ -456,14 +455,20 @@ form textarea {
   }
   .completions-container {
     grid-template-columns: 1fr;
+    width: 100%;
+    max-width: 550px;
   }
   .completions-img img {
     padding-left: 0;
+    width: 100%;
+    max-width: 550px;
   }
   .completions-img {
     padding-top: 2rem;
-    /* display: flex; */
+    display: flex;
     justify-content: center;
+    width: 100%;
+    max-width: 550px;
   }
   .contact-form form{
     width: 300px;

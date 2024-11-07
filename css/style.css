@@ -184,6 +184,8 @@ header.shadow {
   align-items: center;
   gap: 2rem;
   margin-top: 4rem;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 .completios-img img {
   width: 80%;
@@ -222,6 +224,7 @@ span {
   height: 0.5rem;
   background: var(--main-color);
   border-radius: 0.5rem;
+  max-width: 100%;
 }
 .downscaling-bar {
   width: 3%;

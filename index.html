@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -59,18 +59,24 @@
         <li><a href="#home" data-section="home"><span class="nav-num">01</span>Home</a></li>
         <li><a href="#about" data-section="about"><span class="nav-num">02</span>About</a></li>
         <li><a href="#education" data-section="education"><span class="nav-num">03</span>Education</a></li>
-        <li><a href="#projects" data-section="projects"><span class="nav-num">04</span>Projects</a></li>
-        <li><a href="#skills" data-section="skills"><span class="nav-num">05</span>Skills</a></li>
-        <li><a href="#portfolio" data-section="portfolio"><span class="nav-num">06</span>Portfolio</a></li>
-        <li><a href="#contact" data-section="contact"><span class="nav-num">07</span>Contact</a></li>
+        <li><a href="#experience" data-section="experience"><span class="nav-num">04</span>Experience</a></li>
+        <li><a href="#projects" data-section="projects"><span class="nav-num">05</span>Projects</a></li>
+        <li><a href="#skills" data-section="skills"><span class="nav-num">06</span>Skills</a></li>
+        <li><a href="#portfolio" data-section="portfolio"><span class="nav-num">07</span>Portfolio</a></li>
+        <li><a href="#contact" data-section="contact"><span class="nav-num">08</span>Contact</a></li>
       </ul>
     </nav>
 
-    <button class="menu-btn" id="menu-icon" aria-label="Toggle menu" aria-expanded="false">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
+    <div class="header-actions">
+      <button class="dark-toggle" id="dark-toggle" aria-label="Toggle dark mode">
+        <i class='bx bx-moon'></i>
+      </button>
+      <button class="menu-btn" id="menu-icon" aria-label="Toggle menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
   </header>
 
   <!-- Hero -->
@@ -96,12 +102,10 @@
       </p>
       <h1>Rifqi<br><em>Aditya</em></h1>
       <h2 class="hero-role">Data Scientist <span class="role-divider">·</span> Filmmaker</h2>
-      <p class="hero-bio">Physics graduate from Universitas Indonesia. I build machine learning models that extract meaning from data, and direct films that tell stories with light.</p>
+      <p class="hero-bio">Engineer with a Physics background, building data systems and automation infrastructure across the full stack — from ETL pipelines and LLM-powered automation to production-deployed ML models on GCP.</p>
       <div class="hero-cta">
         <a href="#contact" class="btn btn-primary">Get in Touch</a>
-        <a href="resume/Rifqi Aditya-Curriculum Vitae.pdf" class="btn btn-ghost" download>
-          <i class='bx bx-download'></i> Download CV
-        </a>
+        <a href="#experience" class="btn btn-ghost">View Experience</a>
       </div>
     </div>
   </section>
@@ -113,16 +117,16 @@
       <span class="stat-label">Projects</span>
     </div>
     <div class="stat-item">
-      <span class="stat-num" data-target="5">0</span>
-      <span class="stat-label">Certifications</span>
+      <span class="stat-num" data-target="3">0</span>
+      <span class="stat-label">Companies</span>
     </div>
     <div class="stat-item">
       <span class="stat-num" data-target="2">0</span>
-      <span class="stat-label">Years in ML</span>
+      <span class="stat-label">Yrs Experience</span>
     </div>
     <div class="stat-item">
-      <span class="stat-num" data-target="10">0</span>
-      <span class="stat-label">Tools &amp; Languages</span>
+      <span class="stat-num" data-target="20">0</span>
+      <span class="stat-label">Tools &amp; Frameworks</span>
     </div>
   </div>
 
@@ -141,8 +145,8 @@
       </div>
 
       <div class="about-text">
-        <p>I'm a <strong>Physics graduate from Universitas Indonesia</strong> and a Bangkit Academy Distinction Graduate, certified in machine learning by Google, GoTo, and Traveloka. My work sits at the intersection of computational science and visual storytelling.</p>
-        <p>On the technical side, I've shipped projects spanning medical imaging AI (Grad-CAM, CLAHE), physics-informed neural networks for rainfall forecasting, and interactive data dashboards. I work primarily in Python with TensorFlow, OpenCV, and the PyData stack.</p>
+        <p>I'm a <strong>Physics graduate from Universitas Indonesia</strong> (GPA 3.55/4.00) and a Bangkit Academy Distinction Graduate, certified in machine learning by Google, GoTo, and Traveloka. My work sits at the intersection of computational science and visual storytelling.</p>
+        <p>Professionally, I've shipped production systems at PT Super Bank Indonesia (automation & AI), engineered ETL pipelines for BMKG's 1,013-station seismological network, and deployed medical imaging AI on GCP at PT Kalbe Farma. I work across Python, TensorFlow, PyTorch, the Hugging Face stack, and GCP.</p>
         <p>Away from code, I work as a Director of Photography — lighting events and crafting films in the Adobe Creative Cloud environment. I believe the precision required in physics and the intuition required in filmmaking aren't so different.</p>
 
         <div class="information">
@@ -156,14 +160,12 @@
           </div>
           <div class="info-box">
             <i class='bx bxs-map' aria-hidden="true"></i>
-            <span>Indonesia</span>
+            <span>Depok, West Java, Indonesia</span>
           </div>
-        </div>
-
-        <div class="about-cta">
-          <a href="resume/Rifqi Aditya-Curriculum Vitae.pdf" class="btn btn-primary" download>
-            <i class='bx bx-download'></i> Download CV
-          </a>
+          <div class="info-box">
+            <i class='bx bx-globe' aria-hidden="true"></i>
+            <span>Indonesian (Native) · TOEFL ITP: 627 · CEFR B2</span>
+          </div>
         </div>
       </div>
     </div>
@@ -180,25 +182,26 @@
       <div class="timeline-item">
         <div class="timeline-dot"></div>
         <div class="timeline-content">
-          <span class="timeline-date mono-tag">2019 — 2024</span>
-          <h3>B.Sc. Physics — Universitas Indonesia</h3>
-          <p>Computational physics, signal processing, and sensor systems. Thesis on physics-informed deep learning for atmospheric data.</p>
+          <span class="timeline-date mono-tag">Jul 2021 — Jul 2025</span>
+          <h3>B.Sc. Physics — Universitas Indonesia <span class="timeline-gpa">GPA 3.55/4.00</span></h3>
+          <p>Computational physics, signal processing, and sensor systems. Thesis on physics-informed deep learning for atmospheric spatial downscaling.</p>
+          <p class="timeline-award"><i class='bx bxs-award'></i> International Student Mobility FMIPA UI 2024 — Chapter South Korea Awardee</p>
         </div>
       </div>
       <div class="timeline-item">
         <div class="timeline-dot"></div>
         <div class="timeline-content">
-          <span class="timeline-date mono-tag">2023</span>
-          <h3>Bangkit Academy — Distinction Graduate</h3>
-          <p>Machine learning specialization co-organized by Google, GoTo, and Traveloka. Awarded Distinction — top cohort recognition.</p>
+          <span class="timeline-date mono-tag">Jan 2024 — Jul 2024</span>
+          <h3>Bangkit Academy — Distinction Graduate <span class="timeline-gpa">96.09/100</span></h3>
+          <p>Machine learning specialization co-organized by Google, GoTo, and Traveloka. Top 10% of 4,650 students nationwide. Completed 5 specializations and 15 courses (958 hours) with 100% attendance.</p>
         </div>
       </div>
       <div class="timeline-item">
         <div class="timeline-dot"></div>
         <div class="timeline-content">
-          <span class="timeline-date mono-tag">2024</span>
+          <span class="timeline-date mono-tag">2025</span>
           <h3>Top 10 — Datathon 2025: AI for Business Strategy</h3>
-          <p>National-level data science competition. Built ensemble ML models for market segmentation and business forecasting.</p>
+          <p>National-level data science competition. Built terTATa-LLM for Indonesia's 66M+ MSME operators, ranking Top 10 nationally out of hundreds of teams.</p>
         </div>
       </div>
       <div class="timeline-item">
@@ -212,9 +215,95 @@
     </div>
   </section>
 
-  <!-- Projects (replaces Completions) -->
-  <section class="projects" id="projects">
+  <!-- Work Experience -->
+  <section class="experience" id="experience">
     <div class="section-label" aria-hidden="true"><span class="mono-tag">04</span></div>
+    <div class="heading">
+      <h2>Work <em>Experience</em></h2>
+      <p class="section-sub">Professional roles and internships</p>
+    </div>
+
+    <div class="exp-list">
+
+      <div class="exp-card" data-animate>
+        <div class="exp-header">
+          <div class="exp-title-group">
+            <h3 class="exp-role">Automation Engineer <span class="exp-type">(Finance)</span></h3>
+            <span class="exp-company">PT Super Bank Indonesia Tbk</span>
+          </div>
+          <span class="exp-period mono-tag">Oct 2025 — Present</span>
+        </div>
+        <ul class="exp-bullets">
+          <li>Reduced a fully manual procurement workflow to a single touchpoint: one Form submission triggers vendor data computation, email routing, and 7 scheduled triggers autonomously across 500+ active contracts.</li>
+          <li>Built <strong>Procureboard</strong> — a full-stack SPA with SHA-256 auth, role-scoped data access, Chart.js visualizations across 21 live KPIs, and <strong>Pena Track</strong>, an AI assistant powered by the OpenAI Chat Completions API.</li>
+          <li>Built an n8n automation that parses vendor proposals against RFQ baselines via OpenAI API, producing a bilingual EN/ID JSON — cutting contract drafting from 3 hours to under 5 minutes.</li>
+          <li>Developing a Slack-integrated RAG chatbot using n8n for document retrieval and LLM response generation pipelines for context-aware internal Q&amp;A.</li>
+        </ul>
+        <div class="exp-tags">
+          <span>Google Apps Script</span><span>n8n</span><span>OpenAI API</span><span>RAG</span><span>Chart.js</span>
+        </div>
+      </div>
+
+      <div class="exp-card" data-animate>
+        <div class="exp-header">
+          <div class="exp-title-group">
+            <h3 class="exp-role">Data Engineer</h3>
+            <span class="exp-company">Indonesian Agency for Meteorology, Climatology, and Geophysics (BMKG)</span>
+          </div>
+          <span class="exp-period mono-tag">Dec 2024 — Mar 2025</span>
+        </div>
+        <ul class="exp-bullets">
+          <li>Built an authenticated Selenium scraper navigating BMKG's restricted portal across 1,013 seismological stations — extracting 3 table types per station and replacing fully manual data collection with an automated pipeline.</li>
+          <li>Engineered a fault-tolerant ETL pipeline with multi-tab session management, 30-second dynamic WebDriverWait, and 3-attempt retry logic, consolidating 5,233 equipment records into structured Excel workbooks for predictive maintenance analysis.</li>
+          <li>Built a metadata enrichment pipeline in Pandas and Geopy — auto-populating 240 missing addresses via Nominatim reverse geocoding across 1,013 station records.</li>
+        </ul>
+        <div class="exp-tags">
+          <span>Python</span><span>Selenium</span><span>Pandas</span><span>Geopy</span><span>ETL</span>
+        </div>
+      </div>
+
+      <div class="exp-card" data-animate>
+        <div class="exp-header">
+          <div class="exp-title-group">
+            <h3 class="exp-role">Machine Learning Engineer</h3>
+            <span class="exp-company">PT Kalbe Farma Tbk</span>
+          </div>
+          <span class="exp-period mono-tag">Apr 2024 — Jul 2024</span>
+        </div>
+        <ul class="exp-bullets">
+          <li>Fine-tuned DenseNet121 for 14-class multi-label chest pathology detection using per-class weighted binary cross-entropy, achieving <strong>&gt;90% AUC</strong> across all 14 pathologies on a 2,500-case held-out set from the NIH ChestX-ray14 dataset (24,999 images total).</li>
+          <li>Engineered a 2-stage preprocessing pipeline (CLAHE contrast enhancement + featurewise normalization), boosting interpretability metrics by 25% on the test set.</li>
+          <li>Developed a Grad-CAM explainability module (ResNet50, conv5_block3_out) for clinician-facing heatmaps. Architected the full GCP deployment: Healthcare API (DICOM store), Cloud Functions, Cloud Storage, and Cloud Run at 100% uptime.</li>
+        </ul>
+        <div class="exp-tags">
+          <span>TensorFlow</span><span>DenseNet121</span><span>Grad-CAM</span><span>GCP</span><span>DICOM</span>
+        </div>
+      </div>
+
+      <div class="exp-card" data-animate>
+        <div class="exp-header">
+          <div class="exp-title-group">
+            <h3 class="exp-role">Machine Learning Cohort</h3>
+            <span class="exp-company">Bangkit Academy by Google, Tokopedia, Gojek &amp; Traveloka</span>
+          </div>
+          <span class="exp-period mono-tag">Jan 2024 — Jul 2024</span>
+        </div>
+        <ul class="exp-bullets">
+          <li>Graduated with <strong>Distinction</strong> — top 10% of 4,650 students nationwide, with a 96.09/100 average score and 100% attendance across all sessions.</li>
+          <li>Completed 5 specializations and 15 courses (958 hours) spanning ML foundations, advanced TensorFlow (custom layers, GANs), deployment, and generative AI.</li>
+          <li>Engineered ML components for team C241-DA01's chest X-ray diagnostic system: object detection (EfficientDet D0, Faster RCNN ResNet50) and classification pipelines — project scored 97.51 (team) / 98.5 (individual).</li>
+        </ul>
+        <div class="exp-tags">
+          <span>TensorFlow</span><span>EfficientDet</span><span>ResNet50</span><span>GANs</span><span>Generative AI</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section class="projects" id="projects">
+    <div class="section-label" aria-hidden="true"><span class="mono-tag">05</span></div>
     <div class="heading">
       <h2>Selected <em>Projects</em></h2>
       <p class="section-sub">Research, engineering, and creative work</p>
@@ -229,10 +318,10 @@
             <a href="https://github.com/Barudak-Learning/terTATa" target="_blank" rel="noopener" aria-label="GitHub repository"><i class='bx bxl-github'></i></a>
           </div>
         </div>
-        <h3 class="project-title">Top 10 — Datathon 2025</h3>
-        <p class="project-desc">AI for Business Strategy competition. Built predictive models for market segmentation and demand forecasting using ensemble methods and feature engineering.</p>
+        <h3 class="project-title">Top 10 — Datathon 2025 (terTATa-LLM)</h3>
+        <p class="project-desc">Financial QA system for Indonesia's 66M+ MSME operators. Fine-tuned Nous-Hermes-2-Mistral-7B-DPO via LoRA (r=64, α=16) with 4-bit NF4 quantization on 13,215 TAT-QA pairs — only 0.72% of 3.78B parameters trained. Achieved F1=46.62. Deployed on Hugging Face Spaces.</p>
         <div class="project-tags">
-          <span>Python</span><span>Scikit-learn</span><span>Pandas</span><span>XGBoost</span>
+          <span>LoRA</span><span>LLM</span><span>Hugging Face</span><span>TAT-QA</span><span>Python</span>
         </div>
       </article>
 
@@ -244,9 +333,9 @@
           </div>
         </div>
         <h3 class="project-title">CNN Spatial Downscaling of Rainfall</h3>
-        <p class="project-desc">EDSR-based convolutional neural network for super-resolution of rainfall forecast grids. Physics-informed approach combining meteorological priors with deep learning.</p>
+        <p class="project-desc">EDSR-based network to downscale MSWEP V2 daily rainfall over Java from 0.25° to 0.1° (2.5× spatial resolution). Achieved RMSE=1.71 mm/day, R²=0.967, KGE=0.978 on 1,096 held-out test frames — bridging coarse climate output to operational hydrology precision.</p>
         <div class="project-tags">
-          <span>TensorFlow</span><span>OpenCV</span><span>NumPy</span><span>Physics</span>
+          <span>TensorFlow</span><span>EDSR</span><span>ResNet-SR</span><span>MSWEP</span><span>Physics</span>
         </div>
       </article>
 
@@ -258,9 +347,9 @@
           </div>
         </div>
         <h3 class="project-title">Cloud-Based PACS &amp; AI — Chest X-Ray</h3>
-        <p class="project-desc">AI-integrated Picture Archiving and Communication System with CLAHE enhancement and Grad-CAM visualisation for imaging quality assessment of chest radiographs.</p>
+        <p class="project-desc">AI-integrated PACS with CLAHE enhancement and Grad-CAM heatmaps for clinician-facing chest radiograph analysis. Achieved >90% AUC across 14 lung pathologies on NIH ChestX-ray14. Deployed on GCP (Healthcare API, Cloud Run) at 100% uptime.</p>
         <div class="project-tags">
-          <span>TensorFlow</span><span>Grad-CAM</span><span>CLAHE</span><span>Cloud</span>
+          <span>TensorFlow</span><span>Grad-CAM</span><span>CLAHE</span><span>GCP</span><span>DICOM</span>
         </div>
       </article>
 
@@ -282,22 +371,21 @@
       <article class="project-card" data-animate>
         <div class="project-card-top">
           <span class="project-year mono-tag">2023</span>
-          <div class="project-links">
-          </div>
+          <div class="project-links"></div>
         </div>
         <h3 class="project-title">RFID Car Parking System</h3>
-        <p class="project-desc">Embedded system using RFID authentication and ultrasonic proximity sensors with Arduino. C++ firmware for automated gate control and real-time occupancy tracking.</p>
+        <p class="project-desc">RFID access control on Arduino Uno using MFRC522 (SPI), storing multi-card UIDs in EEPROM across power cycles. Integrated KY-024 Hall sensor, infrared sensor for auto-gate closure, relay-controlled solenoid with 10-second window, servo motor barrier, and I2C LCD for live occupancy display.</p>
         <div class="project-tags">
-          <span>C++</span><span>Arduino</span><span>RFID</span><span>Sensors</span>
+          <span>C++</span><span>Arduino</span><span>RFID</span><span>EEPROM</span><span>Sensors</span>
         </div>
       </article>
 
     </div>
   </section>
 
-  <!-- Skills (replaces Offerings) -->
+  <!-- Skills -->
   <section class="skills" id="skills">
-    <div class="section-label" aria-hidden="true"><span class="mono-tag">05</span></div>
+    <div class="section-label" aria-hidden="true"><span class="mono-tag">06</span></div>
     <div class="heading">
       <h2>Skills &amp; <em>Tools</em></h2>
       <p class="section-sub">What I work with</p>
@@ -306,88 +394,102 @@
     <div class="skills-grid">
 
       <div class="skill-category" data-animate>
-        <h3 class="skill-cat-label"><span class="mono-tag">// data science</span></h3>
+        <h3 class="skill-cat-label"><span class="mono-tag">// machine learning &amp; AI</span></h3>
         <div class="skill-list">
           <div class="skill-item">
             <i class='bx bxl-python' aria-hidden="true"></i>
             <div class="skill-info">
               <span class="skill-name">Python</span>
-              <span class="skill-desc">Primary language — data pipelines, ML, scripting</span>
+              <span class="skill-desc">Primary language — ML pipelines, automation, scripting</span>
             </div>
           </div>
           <div class="skill-item">
             <i class='bx bxs-network-chart' aria-hidden="true"></i>
             <div class="skill-info">
-              <span class="skill-name">TensorFlow / Keras</span>
-              <span class="skill-desc">CNNs, transfer learning, model deployment</span>
-            </div>
-          </div>
-          <div class="skill-item">
-            <i class='bx bxs-cloud-download' aria-hidden="true"></i>
-            <div class="skill-info">
-              <span class="skill-name">OpenCV / Image Processing</span>
-              <span class="skill-desc">Computer vision, spatial analysis, enhancement</span>
-            </div>
-          </div>
-          <div class="skill-item">
-            <i class='bx bx-bar-chart' aria-hidden="true"></i>
-            <div class="skill-info">
-              <span class="skill-name">Excel, SQL, Tableau, Power BI</span>
-              <span class="skill-desc">Business analytics, reporting, and dashboards</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="skill-category" data-animate>
-        <h3 class="skill-cat-label"><span class="mono-tag">// engineering</span></h3>
-        <div class="skill-list">
-          <div class="skill-item">
-            <i class='bx bxs-data' aria-hidden="true"></i>
-            <div class="skill-info">
-              <span class="skill-name">Data Analysis</span>
-              <span class="skill-desc">Pandas, NumPy, Matplotlib, Seaborn, Plotly</span>
-            </div>
-          </div>
-          <div class="skill-item">
-            <i class='bx bx-code-curly' aria-hidden="true"></i>
-            <div class="skill-info">
-              <span class="skill-name">JavaScript</span>
-              <span class="skill-desc">Web interactions, data visualization in browser</span>
-            </div>
-          </div>
-          <div class="skill-item">
-            <i class='bx bxs-plane-alt' aria-hidden="true"></i>
-            <div class="skill-info">
-              <span class="skill-name">Avionics</span>
-              <span class="skill-desc">Sensor systems, embedded instrumentation, C++</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="skill-category" data-animate>
-        <h3 class="skill-cat-label"><span class="mono-tag">// creative</span></h3>
-        <div class="skill-list">
-          <div class="skill-item">
-            <i class='bx bxs-camera-movie' aria-hidden="true"></i>
-            <div class="skill-info">
-              <span class="skill-name">Film Editing &amp; DOP</span>
-              <span class="skill-desc">Adobe Premiere, After Effects, color grading</span>
+              <span class="skill-name">TensorFlow / Keras / PyTorch</span>
+              <span class="skill-desc">CNNs, GANs, transfer learning, LLM fine-tuning</span>
             </div>
           </div>
           <div class="skill-item">
             <i class='bx bxl-codepen' aria-hidden="true"></i>
             <div class="skill-info">
-              <span class="skill-name">ML &amp; Deep Learning</span>
-              <span class="skill-desc">Model architecture, training, evaluation, deployment</span>
+              <span class="skill-name">Hugging Face (Transformers, PEFT, TRL)</span>
+              <span class="skill-desc">LoRA fine-tuning, quantization, model deployment</span>
+            </div>
+          </div>
+          <div class="skill-item">
+            <i class='bx bxs-cloud-download' aria-hidden="true"></i>
+            <div class="skill-info">
+              <span class="skill-name">OpenCV / scikit-learn / RAG</span>
+              <span class="skill-desc">Computer vision, classical ML, retrieval-augmented generation</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="skill-category" data-animate>
+        <h3 class="skill-cat-label"><span class="mono-tag">// data &amp; cloud</span></h3>
+        <div class="skill-list">
+          <div class="skill-item">
+            <i class='bx bxs-data' aria-hidden="true"></i>
+            <div class="skill-info">
+              <span class="skill-name">SQL / BigQuery / xarray / Pandas</span>
+              <span class="skill-desc">Cloud data warehousing, geospatial & scientific data</span>
+            </div>
+          </div>
+          <div class="skill-item">
+            <i class='bx bxl-google-cloud' aria-hidden="true"></i>
+            <div class="skill-info">
+              <span class="skill-name">GCP (Vertex AI, Cloud Run, Cloud Functions, Cloud Storage)</span>
+              <span class="skill-desc">Production ML deployment, healthcare DICOM pipelines</span>
+            </div>
+          </div>
+          <div class="skill-item">
+            <i class='bx bxl-docker' aria-hidden="true"></i>
+            <div class="skill-info">
+              <span class="skill-name">Docker / GitHub Actions CI/CD</span>
+              <span class="skill-desc">Containerization, automated deployment pipelines</span>
+            </div>
+          </div>
+          <div class="skill-item">
+            <i class='bx bx-bar-chart' aria-hidden="true"></i>
+            <div class="skill-info">
+              <span class="skill-name">Power BI / Tableau / Excel</span>
+              <span class="skill-desc">Business intelligence, KPI dashboards, reporting</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="skill-category" data-animate>
+        <h3 class="skill-cat-label"><span class="mono-tag">// engineering &amp; creative</span></h3>
+        <div class="skill-list">
+          <div class="skill-item">
+            <i class='bx bx-code-curly' aria-hidden="true"></i>
+            <div class="skill-info">
+              <span class="skill-name">JavaScript / n8n / Google Apps Script</span>
+              <span class="skill-desc">Web apps, workflow automation, LLM-connected pipelines</span>
+            </div>
+          </div>
+          <div class="skill-item">
+            <i class='bx bxs-plane-alt' aria-hidden="true"></i>
+            <div class="skill-info">
+              <span class="skill-name">C++ / Go / Rust / Arduino</span>
+              <span class="skill-desc">Embedded systems, sensor firmware, systems programming</span>
             </div>
           </div>
           <div class="skill-item">
             <i class='bx bxl-visual-studio' aria-hidden="true"></i>
             <div class="skill-info">
-              <span class="skill-name">Python Development</span>
-              <span class="skill-desc">APIs, automation scripts, Streamlit apps</span>
+              <span class="skill-name">Streamlit / Gradio / Selenium</span>
+              <span class="skill-desc">ML apps, API integrations, ETL automation</span>
+            </div>
+          </div>
+          <div class="skill-item">
+            <i class='bx bxs-camera-movie' aria-hidden="true"></i>
+            <div class="skill-info">
+              <span class="skill-name">Film Editing &amp; DOP</span>
+              <span class="skill-desc">Adobe Premiere, After Effects, color grading</span>
             </div>
           </div>
         </div>
@@ -398,7 +500,7 @@
 
   <!-- Portfolio -->
   <section class="portfolio" id="portfolio">
-    <div class="section-label" aria-hidden="true"><span class="mono-tag">06</span></div>
+    <div class="section-label" aria-hidden="true"><span class="mono-tag">07</span></div>
     <div class="heading">
       <h2>Visual <em>Portfolio</em></h2>
       <p class="section-sub">Films, interfaces, and experiments</p>
@@ -409,14 +511,14 @@
       <div class="portfolio-card" data-animate>
         <a href="https://github.com/Barudak-Learning/terTATa" target="_blank" rel="noopener" class="portfolio-img-link">
           <div class="portfolio-img-wrap">
-            <img src="assets/datathon.png" alt="Datathon 2025 — AI for Business Strategy project screenshot">
+            <img src="assets/datathon.png" alt="Datathon 2025 — terTATa-LLM project screenshot">
             <div class="portfolio-overlay"><span class="overlay-label">View Project <i class='bx bx-link-external'></i></span></div>
           </div>
         </a>
         <div class="portfolio-card-info">
           <h3>Datathon 2025</h3>
           <p>AI for Business Strategy</p>
-          <div class="portfolio-tags"><span>Python</span><span>ML</span></div>
+          <div class="portfolio-tags"><span>LLM</span><span>LoRA</span></div>
         </div>
       </div>
 
@@ -443,8 +545,8 @@
         </a>
         <div class="portfolio-card-info">
           <h3>Cloud PACS — X-Ray AI</h3>
-          <p>Medical Imaging &amp; AI</p>
-          <div class="portfolio-tags"><span>Grad-CAM</span><span>CLAHE</span></div>
+          <p>Medical Imaging &amp; GCP</p>
+          <div class="portfolio-tags"><span>Grad-CAM</span><span>GCP</span></div>
         </div>
       </div>
 
@@ -521,7 +623,7 @@
 
   <!-- Contact -->
   <section class="contact" id="contact">
-    <div class="section-label" aria-hidden="true"><span class="mono-tag">07</span></div>
+    <div class="section-label" aria-hidden="true"><span class="mono-tag">08</span></div>
     <div class="heading">
       <h2>Get in <em>Touch</em></h2>
       <p class="section-sub">Open to collaborations, roles, and conversations</p>

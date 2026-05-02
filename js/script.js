@@ -1,3 +1,28 @@
+// ── Dark Mode ─────────────────────────────────────────────────────────
+const darkToggle = document.getElementById('dark-toggle');
+const htmlEl     = document.documentElement;
+
+(function initTheme() {
+  const saved      = localStorage.getItem('theme');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const theme      = saved || (prefersDark ? 'dark' : 'light');
+  htmlEl.setAttribute('data-theme', theme);
+  updateToggleIcon(theme);
+})();
+
+function updateToggleIcon(theme) {
+  const icon = darkToggle.querySelector('i');
+  if (!icon) return;
+  icon.className = theme === 'dark' ? 'bx bx-sun' : 'bx bx-moon';
+}
+
+darkToggle.addEventListener('click', () => {
+  const next = htmlEl.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+  htmlEl.setAttribute('data-theme', next);
+  localStorage.setItem('theme', next);
+  updateToggleIcon(next);
+});
+
 // ── Element References ────────────────────────────────────────────────
 const header       = document.getElementById('navbar');
 const menuBtn      = document.getElementById('menu-icon');

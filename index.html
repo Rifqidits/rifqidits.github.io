@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -27,7 +27,7 @@
   <!-- Fonts: Outfit (display), Plus Jakarta Sans (body), JetBrains Mono (mono) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Onest:wght@100..900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
   <!-- BoxIcons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
@@ -47,68 +47,44 @@
     </div>
   </div>
 
-  <!-- Header -->
-  <header id="navbar">
-    <a href="#home" class="logo">
-      <span class="logo-mono">RA</span>
-      <span class="logo-full">Rifqi Aditya</span>
-    </a>
-
-    <nav aria-label="Main navigation">
-      <ul class="navbar">
-        <li><a href="#home" data-section="home"><span class="nav-num">01</span>Home</a></li>
-        <li><a href="#about" data-section="about"><span class="nav-num">02</span>About</a></li>
-        <li><a href="#education" data-section="education"><span class="nav-num">03</span>Education</a></li>
-        <li><a href="#experience" data-section="experience"><span class="nav-num">04</span>Experience</a></li>
-        <li><a href="#projects" data-section="projects"><span class="nav-num">05</span>Projects</a></li>
-        <li><a href="#skills" data-section="skills"><span class="nav-num">06</span>Skills</a></li>
-        <li><a href="#portfolio" data-section="portfolio"><span class="nav-num">07</span>Portfolio</a></li>
-        <li><a href="#contact" data-section="contact"><span class="nav-num">08</span>Contact</a></li>
-      </ul>
-    </nav>
-
-    <div class="header-actions">
-      <button class="dark-toggle" id="dark-toggle" aria-label="Toggle dark mode">
-        <i class='bx bx-moon'></i>
-      </button>
-      <button class="menu-btn" id="menu-icon" aria-label="Toggle menu" aria-expanded="false">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-    </div>
-  </header>
+  <!-- Floating Pill Nav -->
+  <nav class="pill-nav" id="pill-nav" aria-label="Main navigation">
+    <ul>
+      <li><a href="#home" class="pill-link active" data-section="home">Home</a></li>
+      <li><a href="#about" class="pill-link" data-section="about">About</a></li>
+      <li><a href="#experience" class="pill-link" data-section="experience">Work</a></li>
+      <li><a href="#projects" class="pill-link" data-section="projects">Projects</a></li>
+      <li><a href="#skills" class="pill-link" data-section="skills">Skills</a></li>
+      <li><a href="#contact" class="pill-link" data-section="contact">Contact</a></li>
+    </ul>
+    <button class="dark-toggle" id="dark-toggle" aria-label="Toggle dark mode">
+      <i class='bx bx-moon'></i>
+    </button>
+  </nav>
 
   <!-- Hero -->
-  <section class="home" id="home">
-    <div class="hero-grid-overlay" aria-hidden="true"></div>
-
-    <div class="social" aria-label="Social links">
-      <a href="https://github.com/Rifqidits" target="_blank" rel="noopener" aria-label="GitHub"><i class='bx bxl-github'></i></a>
-      <a href="https://www.linkedin.com/in/adityarifqi/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class='bx bxl-linkedin'></i></a>
-      <a href="https://medium.com/@rifqidits" target="_blank" rel="noopener" aria-label="Medium"><i class='bx bxl-medium'></i></a>
-      <a href="https://youtube.com/@Qidits/" target="_blank" rel="noopener" aria-label="YouTube"><i class='bx bxl-youtube'></i></a>
-    </div>
-
-    <div class="home-img">
-      <div class="home-img-frame">
-        <img src="assets/profileimg.png" alt="Rifqi Aditya — profile photo">
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <div class="hero-text">
+        <p class="hero-tag"><span class="mono-tag">// automation &amp; ml</span></p>
+        <h1 class="hero-name">Rifqi<br><em>Aditya</em></h1>
+        <p class="hero-roles">Automation Engineer &middot; Director of Photography</p>
+        <p class="hero-location"><i class='bx bx-map-pin'></i> Jakarta, Indonesia</p>
+        <div class="hero-social" aria-label="Social links">
+          <a href="https://github.com/Rifqidits" target="_blank" rel="noopener" aria-label="GitHub"><i class='bx bxl-github'></i></a>
+          <a href="https://www.linkedin.com/in/adityarifqi/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class='bx bxl-linkedin'></i></a>
+          <a href="https://medium.com/@rifqidits" target="_blank" rel="noopener" aria-label="Medium"><i class='bx bxl-medium'></i></a>
+          <a href="https://youtube.com/@Qidits/" target="_blank" rel="noopener" aria-label="YouTube"><i class='bx bxl-youtube'></i></a>
+        </div>
+        <a href="#contact" class="btn btn-connect">
+          <span>Let's Talk</span>
+          <span class="btn-arrow-badge" aria-hidden="true"><i class='bx bx-right-arrow-alt'></i></span>
+        </a>
+      </div>
+      <div class="hero-visual">
+        <img src="assets/profileimg.png" alt="Rifqi Aditya" class="hero-photo">
       </div>
     </div>
-
-    <div class="home-text" id="main-content">
-      <p class="hero-label">
-        <span class="mono-tag">// automation &amp; ml</span>
-      </p>
-      <h1>Rifqi<br><em>Aditya</em></h1>
-      <h2 class="hero-role">Automation Engineer <span class="role-divider">·</span> Director of Photography</h2>
-      <p class="hero-bio">Engineer with a Physics background, building data systems and automation infrastructure across the full stack — from ETL pipelines and LLM-powered automation to production-deployed ML models on GCP.</p>
-      <div class="hero-cta">
-        <a href="#contact" class="btn btn-primary">Get in Touch</a>
-        <a href="#experience" class="btn btn-ghost">View Experience</a>
-      </div>
-    </div>
-  </section>
 
   <!-- Stats Strip -->
   <div class="stats-strip" aria-label="Quick stats">
@@ -129,6 +105,9 @@
       <span class="stat-label">Tools &amp; Frameworks</span>
     </div>
   </div>
+  </section><!-- /.hero -->
+
+  <main id="main-content">
 
   <!-- About -->
   <section class="about" id="about">
@@ -301,88 +280,126 @@
     </div>
   </section>
 
-  <!-- Projects -->
-  <section class="projects" id="projects">
+  <!-- Work Gallery -->
+  <section class="work" id="projects">
     <div class="section-label" aria-hidden="true"><span class="mono-tag">05</span></div>
     <div class="heading">
-      <h2>Selected <em>Projects</em></h2>
-      <p class="section-sub">Research, engineering, and creative work</p>
+      <h2>Selected <em>Work</em></h2>
+      <p class="section-sub">Engineering, research, and creative projects</p>
     </div>
 
-    <div class="projects-grid">
+    <div class="work-grid">
 
-      <article class="project-card" data-animate>
-        <div class="project-card-top">
-          <span class="project-year mono-tag">2025</span>
-          <div class="project-links">
-            <a href="https://github.com/Barudak-Learning/terTATa" target="_blank" rel="noopener" aria-label="GitHub repository"><i class='bx bxl-github'></i></a>
-          </div>
+      <article class="work-card" data-animate data-detail="/projects/tertata" data-links='[{"href":"https://github.com/Barudak-Learning/terTATa","icon":"bxl-github","label":"GitHub"}]'>
+        <div class="work-img">
+          <img src="assets/datathon.png" alt="Datathon 2025 — terTATa-LLM">
+          <div class="work-hover-hint" aria-hidden="true"><i class='bx bx-expand-alt'></i></div>
+          <span class="work-year mono-tag">2025</span>
         </div>
-        <h3 class="project-title">Top 10 — Datathon 2025 (terTATa-LLM)</h3>
-        <p class="project-desc">Financial QA system for Indonesia's 66M+ MSME operators. Fine-tuned Nous-Hermes-2-Mistral-7B-DPO via LoRA (r=64, α=16) with 4-bit NF4 quantization on 13,215 TAT-QA pairs — only 0.72% of 3.78B parameters trained. Achieved F1=46.62. Deployed on Hugging Face Spaces.</p>
-        <div class="project-tags">
-          <span>LoRA</span><span>LLM</span><span>Hugging Face</span><span>TAT-QA</span><span>Python</span>
+        <div class="work-body">
+          <span class="work-category">ML / NLP</span>
+          <h3 class="work-title">Top 10 — Datathon 2025 (terTATa-LLM)</h3>
+          <p class="work-desc">Financial QA system for Indonesia's 66M+ MSME operators. Fine-tuned Nous-Hermes-2-Mistral-7B-DPO via LoRA (r=64, α=16) with 4-bit NF4 quantization on 13,215 TAT-QA pairs. F1=46.62.</p>
+          <div class="work-tags"><span>LoRA</span><span>LLM</span><span>Hugging Face</span><span>Python</span></div>
         </div>
-        <a href="/projects/tertata" class="project-detail-link">View details →</a>
       </article>
 
-      <article class="project-card" data-animate>
-        <div class="project-card-top">
-          <span class="project-year mono-tag">2025</span>
-          <div class="project-links">
-            <a href="https://github.com/Rifqidits/RainScale-EDSR" target="_blank" rel="noopener" aria-label="GitHub repository"><i class='bx bxl-github'></i></a>
-          </div>
+      <article class="work-card" data-animate data-detail="/projects/rainscale" data-links='[{"href":"https://github.com/Rifqidits/RainScale-EDSR","icon":"bxl-github","label":"GitHub"}]'>
+        <div class="work-img">
+          <img src="assets/downscaling.png" alt="RainScale-EDSR">
+          <div class="work-hover-hint" aria-hidden="true"><i class='bx bx-expand-alt'></i></div>
+          <span class="work-year mono-tag">2025</span>
         </div>
-        <h3 class="project-title">CNN Spatial Downscaling of Rainfall</h3>
-        <p class="project-desc">EDSR-based network to downscale MSWEP V2 daily rainfall over Java from 0.25° to 0.1° (2.5× spatial resolution). Achieved RMSE=1.71 mm/day, R²=0.967, KGE=0.978 on 1,096 held-out test frames — bridging coarse climate output to operational hydrology precision.</p>
-        <div class="project-tags">
-          <span>TensorFlow</span><span>EDSR</span><span>ResNet-SR</span><span>MSWEP</span><span>Physics</span>
+        <div class="work-body">
+          <span class="work-category">ML / Physics</span>
+          <h3 class="work-title">CNN Spatial Downscaling of Rainfall</h3>
+          <p class="work-desc">EDSR network to downscale MSWEP V2 daily rainfall over Java from 0.25° to 0.1° (2.5× resolution). RMSE=1.71 mm/day, R²=0.967, KGE=0.978 on 1,096 held-out test frames.</p>
+          <div class="work-tags"><span>TensorFlow</span><span>EDSR</span><span>MSWEP</span><span>Physics</span></div>
         </div>
-        <a href="/projects/rainscale" class="project-detail-link">View details →</a>
       </article>
 
-      <article class="project-card" data-animate>
-        <div class="project-card-top">
-          <span class="project-year mono-tag">2024</span>
-          <div class="project-links">
-            <a href="https://www.instagram.com/p/DB3adP_SaUk/" target="_blank" rel="noopener" aria-label="View project"><i class='bx bx-link-external'></i></a>
-          </div>
+      <article class="work-card" data-animate data-detail="/projects/pacs" data-links='[{"href":"https://github.com/Rifqidits/C24-DA/","icon":"bxl-github","label":"GitHub"}]'>
+        <div class="work-img">
+          <img src="assets/ml.jpg" alt="Cloud PACS — Chest X-Ray AI">
+          <div class="work-hover-hint" aria-hidden="true"><i class='bx bx-expand-alt'></i></div>
+          <span class="work-year mono-tag">2024</span>
         </div>
-        <h3 class="project-title">Cloud-Based PACS &amp; AI — Chest X-Ray</h3>
-        <p class="project-desc">AI-integrated PACS with CLAHE enhancement and Grad-CAM heatmaps for clinician-facing chest radiograph analysis. Achieved >90% AUC across 14 lung pathologies on NIH ChestX-ray14. Deployed on GCP (Healthcare API, Cloud Run) at 100% uptime.</p>
-        <div class="project-tags">
-          <span>TensorFlow</span><span>Grad-CAM</span><span>CLAHE</span><span>GCP</span><span>DICOM</span>
+        <div class="work-body">
+          <span class="work-category">ML / Healthcare</span>
+          <h3 class="work-title">Cloud-Based PACS &amp; AI — Chest X-Ray</h3>
+          <p class="work-desc">AI-integrated PACS with CLAHE + Grad-CAM heatmaps for clinician-facing radiograph analysis. &gt;90% AUC across 14 lung pathologies. Deployed on GCP at 100% uptime.</p>
+          <div class="work-tags"><span>Grad-CAM</span><span>GCP</span><span>DICOM</span><span>TensorFlow</span></div>
         </div>
-        <a href="/projects/pacs" class="project-detail-link">View details →</a>
       </article>
 
-      <article class="project-card" data-animate>
-        <div class="project-card-top">
-          <span class="project-year mono-tag">2023</span>
-          <div class="project-links">
-            <a href="https://bike-sharing-dataset-qidits.streamlit.app/" target="_blank" rel="noopener" aria-label="Live demo"><i class='bx bx-link-external'></i></a>
-            <a href="https://github.com/Rifqidits/C24-DA/" target="_blank" rel="noopener" aria-label="GitHub repository"><i class='bx bxl-github'></i></a>
-          </div>
+      <article class="work-card" data-animate data-links='[{"href":"https://www.instagram.com/p/DB3adP_SaUk/","icon":"bxl-instagram","label":"Instagram"}]'>
+        <div class="work-img">
+          <img src="assets/ism.jpg" alt="ISM — South Korea 2024">
+          <div class="work-hover-hint" aria-hidden="true"><i class='bx bx-expand-alt'></i></div>
+          <span class="work-year mono-tag">2024</span>
         </div>
-        <h3 class="project-title">Capital Bikeshare — D.C. Data Analysis</h3>
-        <p class="project-desc">Interactive Streamlit dashboard analysing ridership patterns, weather correlations, and station demand across Washington D.C. using the Capital Bikeshare dataset.</p>
-        <div class="project-tags">
-          <span>Python</span><span>Streamlit</span><span>Pandas</span><span>Plotly</span>
+        <div class="work-body">
+          <span class="work-category">Exchange</span>
+          <h3 class="work-title">ISM — South Korea 2024</h3>
+          <p class="work-desc">FMIPA UI International Student Mobility awardee. Research exchange at South Korea partner institution, representing the Faculty of Mathematics and Natural Sciences.</p>
+          <div class="work-tags"><span>FMIPA UI</span><span>Exchange</span><span>Research</span></div>
         </div>
-        <a href="/projects/bikeshare" class="project-detail-link">View details →</a>
       </article>
 
-      <article class="project-card" data-animate>
-        <div class="project-card-top">
-          <span class="project-year mono-tag">2023</span>
-          <div class="project-links"></div>
+      <article class="work-card" data-animate data-detail="/projects/bikeshare" data-links='[{"href":"https://bike-sharing-dataset-qidits.streamlit.app/","icon":"bx-link-external","label":"Live"},{"href":"https://github.com/Rifqidits/C24-DA/","icon":"bxl-github","label":"GitHub"}]'>
+        <div class="work-img">
+          <img src="assets/ds-washingtondc.png" alt="Capital Bikeshare Dashboard">
+          <div class="work-hover-hint" aria-hidden="true"><i class='bx bx-expand-alt'></i></div>
+          <span class="work-year mono-tag">2023</span>
         </div>
-        <h3 class="project-title">RFID Car Parking System</h3>
-        <p class="project-desc">RFID access control on Arduino Uno using MFRC522 (SPI), storing multi-card UIDs in EEPROM across power cycles. Integrated KY-024 Hall sensor, infrared sensor for auto-gate closure, relay-controlled solenoid with 10-second window, servo motor barrier, and I2C LCD for live occupancy display.</p>
-        <div class="project-tags">
-          <span>C++</span><span>Arduino</span><span>RFID</span><span>EEPROM</span><span>Sensors</span>
+        <div class="work-body">
+          <span class="work-category">Data / Viz</span>
+          <h3 class="work-title">Capital Bikeshare — D.C. Data Analysis</h3>
+          <p class="work-desc">Interactive Streamlit dashboard analysing ridership patterns, weather correlations, and station demand across Washington D.C. using the Capital Bikeshare dataset.</p>
+          <div class="work-tags"><span>Streamlit</span><span>Pandas</span><span>Plotly</span><span>Python</span></div>
         </div>
-        <a href="/projects/rfid" class="project-detail-link">View details →</a>
+      </article>
+
+      <article class="work-card" data-animate data-detail="/projects/rfid">
+        <div class="work-img">
+          <img src="assets/embed.jpeg" alt="RFID Car Parking System">
+          <div class="work-hover-hint" aria-hidden="true"><i class='bx bx-expand-alt'></i></div>
+          <span class="work-year mono-tag">2023</span>
+        </div>
+        <div class="work-body">
+          <span class="work-category">Embedded</span>
+          <h3 class="work-title">RFID Car Parking System</h3>
+          <p class="work-desc">RFID access control on Arduino Uno — MFRC522, EEPROM persistence, Hall sensor, relay solenoid gate, servo barrier, and I2C LCD for live occupancy display.</p>
+          <div class="work-tags"><span>C++</span><span>Arduino</span><span>RFID</span><span>EEPROM</span></div>
+        </div>
+      </article>
+
+      <article class="work-card" data-animate data-links='[{"href":"https://www.youtube.com/watch?v=C2ijQoeC7ss/","icon":"bxl-youtube","label":"YouTube"}]'>
+        <div class="work-img">
+          <img src="assets/aftermovie-aadc.png" alt="Art After December 2022">
+          <div class="work-hover-hint" aria-hidden="true"><i class='bx bx-expand-alt'></i></div>
+          <span class="work-year mono-tag">2022</span>
+        </div>
+        <div class="work-body">
+          <span class="work-category">Film / DOP</span>
+          <h3 class="work-title">Art After December 2022</h3>
+          <p class="work-desc">Cinematography and lighting direction for the annual campus event after-movie. Full Adobe Premiere production pipeline with colour grading and sound design.</p>
+          <div class="work-tags"><span>Cinematography</span><span>DOP</span><span>Premiere</span></div>
+        </div>
+      </article>
+
+      <article class="work-card" data-animate data-links='[{"href":"https://www.instagram.com/reel/CY06UqIljw0/","icon":"bxl-instagram","label":"Instagram"}]'>
+        <div class="work-img">
+          <img src="assets/aftermovie-atlantis.png" alt="Atlantis 2021 After Movie">
+          <div class="work-hover-hint" aria-hidden="true"><i class='bx bx-expand-alt'></i></div>
+          <span class="work-year mono-tag">2021</span>
+        </div>
+        <div class="work-body">
+          <span class="work-category">Film / DOP</span>
+          <h3 class="work-title">Atlantis 2021 After Movie</h3>
+          <p class="work-desc">Director of Photography for the Atlantis 2021 campus event film. Shot and edited a cinematic recap capturing the energy of the event.</p>
+          <div class="work-tags"><span>Cinematography</span><span>DOP</span><span>After Effects</span></div>
+        </div>
       </article>
 
     </div>
@@ -393,248 +410,43 @@
     <div class="section-label" aria-hidden="true"><span class="mono-tag">06</span></div>
     <div class="heading">
       <h2>Skills &amp; <em>Tools</em></h2>
-      <p class="section-sub">What I work with</p>
+      <p class="section-sub">What I work with — drag to explore</p>
     </div>
 
-    <div class="skills-grid">
-
-      <div class="skill-category" data-animate>
-        <h3 class="skill-cat-label"><span class="mono-tag">// machine learning &amp; AI</span></h3>
-        <div class="skill-list">
-          <div class="skill-item">
-            <i class='bx bxl-python' aria-hidden="true"></i>
-            <div class="skill-info">
-              <span class="skill-name">Python</span>
-              <span class="skill-desc">Primary language — ML pipelines, automation, scripting</span>
-            </div>
-          </div>
-          <div class="skill-item">
-            <i class='bx bxs-network-chart' aria-hidden="true"></i>
-            <div class="skill-info">
-              <span class="skill-name">TensorFlow / Keras / PyTorch</span>
-              <span class="skill-desc">CNNs, GANs, transfer learning, LLM fine-tuning</span>
-            </div>
-          </div>
-          <div class="skill-item">
-            <i class='bx bxl-codepen' aria-hidden="true"></i>
-            <div class="skill-info">
-              <span class="skill-name">Hugging Face (Transformers, PEFT, TRL)</span>
-              <span class="skill-desc">LoRA fine-tuning, quantization, model deployment</span>
-            </div>
-          </div>
-          <div class="skill-item">
-            <i class='bx bxs-cloud-download' aria-hidden="true"></i>
-            <div class="skill-info">
-              <span class="skill-name">OpenCV / scikit-learn / RAG</span>
-              <span class="skill-desc">Computer vision, classical ML, retrieval-augmented generation</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="skill-category" data-animate>
-        <h3 class="skill-cat-label"><span class="mono-tag">// data &amp; cloud</span></h3>
-        <div class="skill-list">
-          <div class="skill-item">
-            <i class='bx bxs-data' aria-hidden="true"></i>
-            <div class="skill-info">
-              <span class="skill-name">SQL / BigQuery / xarray / Pandas</span>
-              <span class="skill-desc">Cloud data warehousing, geospatial & scientific data</span>
-            </div>
-          </div>
-          <div class="skill-item">
-            <i class='bx bxl-google-cloud' aria-hidden="true"></i>
-            <div class="skill-info">
-              <span class="skill-name">GCP (Vertex AI, Cloud Run, Cloud Functions, Cloud Storage)</span>
-              <span class="skill-desc">Production ML deployment, healthcare DICOM pipelines</span>
-            </div>
-          </div>
-          <div class="skill-item">
-            <i class='bx bxl-docker' aria-hidden="true"></i>
-            <div class="skill-info">
-              <span class="skill-name">Docker / GitHub Actions CI/CD</span>
-              <span class="skill-desc">Containerization, automated deployment pipelines</span>
-            </div>
-          </div>
-          <div class="skill-item">
-            <i class='bx bx-bar-chart' aria-hidden="true"></i>
-            <div class="skill-info">
-              <span class="skill-name">Power BI / Tableau / Excel</span>
-              <span class="skill-desc">Business intelligence, KPI dashboards, reporting</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="skill-category" data-animate>
-        <h3 class="skill-cat-label"><span class="mono-tag">// engineering &amp; creative</span></h3>
-        <div class="skill-list">
-          <div class="skill-item">
-            <i class='bx bx-code-curly' aria-hidden="true"></i>
-            <div class="skill-info">
-              <span class="skill-name">JavaScript / n8n / Google Apps Script</span>
-              <span class="skill-desc">Web apps, workflow automation, LLM-connected pipelines</span>
-            </div>
-          </div>
-          <div class="skill-item">
-            <i class='bx bxs-plane-alt' aria-hidden="true"></i>
-            <div class="skill-info">
-              <span class="skill-name">C++ / Go / Rust / Arduino</span>
-              <span class="skill-desc">Embedded systems, sensor firmware, systems programming</span>
-            </div>
-          </div>
-          <div class="skill-item">
-            <i class='bx bxl-visual-studio' aria-hidden="true"></i>
-            <div class="skill-info">
-              <span class="skill-name">Streamlit / Gradio / Selenium</span>
-              <span class="skill-desc">ML apps, API integrations, ETL automation</span>
-            </div>
-          </div>
-          <div class="skill-item">
-            <i class='bx bxs-camera-movie' aria-hidden="true"></i>
-            <div class="skill-info">
-              <span class="skill-name">Film Editing &amp; DOP</span>
-              <span class="skill-desc">Adobe Premiere, After Effects, color grading</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- Portfolio -->
-  <section class="portfolio" id="portfolio">
-    <div class="section-label" aria-hidden="true"><span class="mono-tag">07</span></div>
-    <div class="heading">
-      <h2>Visual <em>Portfolio</em></h2>
-      <p class="section-sub">Films, interfaces, and experiments</p>
-    </div>
-
-    <div class="portfolio-content">
-
-      <div class="portfolio-card" data-animate>
-        <a href="https://github.com/Barudak-Learning/terTATa" target="_blank" rel="noopener" class="portfolio-img-link">
-          <div class="portfolio-img-wrap">
-            <img src="assets/datathon.png" alt="Datathon 2025 — terTATa-LLM project screenshot">
-            <div class="portfolio-overlay"><span class="overlay-label">View Project <i class='bx bx-link-external'></i></span></div>
-          </div>
-        </a>
-        <div class="portfolio-card-info">
-          <h3>Datathon 2025</h3>
-          <p>AI for Business Strategy</p>
-          <div class="portfolio-tags"><span>LLM</span><span>LoRA</span></div>
-        </div>
-      </div>
-
-      <div class="portfolio-card" data-animate>
-        <a href="https://github.com/Rifqidits/RainScale-EDSR" target="_blank" rel="noopener" class="portfolio-img-link">
-          <div class="portfolio-img-wrap">
-            <img src="assets/downscaling.png?v=2" alt="RainScale-EDSR — CNN rainfall downscaling project">
-            <div class="portfolio-overlay"><span class="overlay-label">View Project <i class='bx bx-link-external'></i></span></div>
-          </div>
-        </a>
-        <div class="portfolio-card-info">
-          <h3>RainScale-EDSR</h3>
-          <p>CNN Rainfall Downscaling</p>
-          <div class="portfolio-tags"><span>TensorFlow</span><span>Physics</span></div>
-        </div>
-      </div>
-
-      <div class="portfolio-card" data-animate>
-        <div class="portfolio-img-wrap no-link">
-          <img src="assets/ml.jpg" alt="Cloud-Based PACS — AI integration for chest X-ray imaging">
-          <div class="portfolio-overlay no-link-overlay"><span class="overlay-label">No link available</span></div>
-        </div>
-        <div class="portfolio-card-info">
-          <h3>Cloud PACS — X-Ray AI</h3>
-          <p>Medical Imaging &amp; GCP</p>
-          <div class="portfolio-tags"><span>Grad-CAM</span><span>GCP</span></div>
-        </div>
-      </div>
-
-      <div class="portfolio-card" data-animate>
-        <a href="https://github.com/Rifqidits/C24-DA/" target="_blank" rel="noopener" class="portfolio-img-link">
-          <div class="portfolio-img-wrap">
-            <img src="assets/ism.jpg" alt="International Student Mobility — South Korea 2024">
-            <div class="portfolio-overlay"><span class="overlay-label">View Project <i class='bx bx-link-external'></i></span></div>
-          </div>
-        </a>
-        <div class="portfolio-card-info">
-          <h3>ISM — South Korea 2024</h3>
-          <p>FMIPA UI International Student Mobility</p>
-          <div class="portfolio-tags"><span>Exchange</span><span>FMIPA UI</span></div>
-        </div>
-      </div>
-
-      <div class="portfolio-card" data-animate>
-        <a href="https://bike-sharing-dataset-qidits.streamlit.app/" target="_blank" rel="noopener" class="portfolio-img-link">
-          <div class="portfolio-img-wrap">
-            <img src="assets/ds-washingtondc.png" alt="Capital Bikeshare — data analysis dashboard for Washington D.C.">
-            <div class="portfolio-overlay"><span class="overlay-label">Live Demo <i class='bx bx-link-external'></i></span></div>
-          </div>
-        </a>
-        <div class="portfolio-card-info">
-          <h3>Capital Bikeshare Dashboard</h3>
-          <p>Streamlit · Data Visualization</p>
-          <div class="portfolio-tags"><span>Streamlit</span><span>Plotly</span></div>
-        </div>
-      </div>
-
-      <div class="portfolio-card" data-animate>
-        <div class="portfolio-img-wrap no-link">
-          <img src="assets/embed.jpeg" alt="RFID Car Parking System — Arduino embedded project">
-          <div class="portfolio-overlay no-link-overlay"><span class="overlay-label">No link available</span></div>
-        </div>
-        <div class="portfolio-card-info">
-          <h3>RFID Parking System</h3>
-          <p>C++ · Arduino Embedded</p>
-          <div class="portfolio-tags"><span>C++</span><span>Arduino</span></div>
-        </div>
-      </div>
-
-      <div class="portfolio-card" data-animate>
-        <a href="https://www.youtube.com/watch?v=C2ijQoeC7ss/" target="_blank" rel="noopener" class="portfolio-img-link">
-          <div class="portfolio-img-wrap">
-            <img src="assets/aftermovie-aadc.png" alt="After Movie — Art After December Class 2022">
-            <div class="portfolio-overlay"><span class="overlay-label">Watch Film <i class='bx bx-link-external'></i></span></div>
-          </div>
-        </a>
-        <div class="portfolio-card-info">
-          <h3>Art After December 2022</h3>
-          <p>Cinematography · Premiere</p>
-          <div class="portfolio-tags"><span>Film</span><span>DOP</span></div>
-        </div>
-      </div>
-
-      <div class="portfolio-card" data-animate>
-        <a href="https://www.instagram.com/reel/CY06UqIljw0/" target="_blank" rel="noopener" class="portfolio-img-link">
-          <div class="portfolio-img-wrap">
-            <img src="assets/aftermovie-atlantis.png" alt="After Movie — Atlantis 2021">
-            <div class="portfolio-overlay"><span class="overlay-label">Watch Film <i class='bx bx-link-external'></i></span></div>
-          </div>
-        </a>
-        <div class="portfolio-card-info">
-          <h3>Atlantis 2021 After Movie</h3>
-          <p>Cinematography · Premiere</p>
-          <div class="portfolio-tags"><span>Film</span><span>DOP</span></div>
-        </div>
-      </div>
-
+    <div class="skills-globe-wrapper" id="skills-globe" aria-label="Skills sphere — drag to explore">
+      <div class="globe-ring" aria-hidden="true"></div>
+      <div class="skill-tag" data-icon="bxl-python">Python</div>
+      <div class="skill-tag" data-icon="bxs-network-chart">TensorFlow</div>
+      <div class="skill-tag" data-icon="bxl-codepen">Hugging Face</div>
+      <div class="skill-tag" data-icon="bxl-google-cloud">GCP</div>
+      <div class="skill-tag" data-icon="bxl-docker">Docker</div>
+      <div class="skill-tag" data-icon="bxs-data">Pandas / SQL</div>
+      <div class="skill-tag" data-icon="bx-code-curly">n8n / JS</div>
+      <div class="skill-tag" data-icon="bxs-plane-alt">C++ / Arduino</div>
+      <div class="skill-tag" data-icon="bxl-visual-studio">Streamlit</div>
+      <div class="skill-tag" data-icon="bx-bar-chart">Power BI</div>
+      <div class="skill-tag" data-icon="bxs-camera-movie">Film / DOP</div>
+      <div class="skill-tag" data-icon="bxs-cloud-download">OpenCV</div>
+      <div class="skill-tag" data-icon="bx-chip">RAG / LLM</div>
+      <div class="skill-tag" data-icon="bx-scatter-chart">xarray</div>
     </div>
   </section>
 
   <!-- Contact -->
   <section class="contact" id="contact">
-    <div class="section-label" aria-hidden="true"><span class="mono-tag">08</span></div>
+    <div class="section-label" aria-hidden="true"><span class="mono-tag">07</span></div>
     <div class="heading">
-      <h2>Get in <em>Touch</em></h2>
+      <h2>Let's <em>Connect</em></h2>
       <p class="section-sub">Open to collaborations, roles, and conversations</p>
     </div>
 
     <div class="contact-wrapper">
       <div class="contact-info">
-        <p>Whether you have a project in mind, want to discuss data science, or just want to say hello — my inbox is open.</p>
+        <p>Whether you have a project in mind, want to discuss automation, or just want to say hello — my inbox is open.</p>
+        <a href="mailto:rifqidits@gmail.com" class="btn btn-connect contact-cta">
+          <span>rifqidits@gmail.com</span>
+          <span class="btn-arrow-badge" aria-hidden="true"><i class='bx bx-right-arrow-alt'></i></span>
+        </a>
         <div class="contact-detail">
           <i class='bx bxs-envelope' aria-hidden="true"></i>
           <a href="mailto:rifqidits@gmail.com">rifqidits@gmail.com</a>
@@ -693,11 +505,34 @@
     </div>
   </footer>
 
+  </main>
+
+  <!-- Work Modal -->
+  <div class="work-modal-backdrop" id="work-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="work-modal-panel">
+      <button class="work-modal-close" id="work-modal-close" aria-label="Close"><i class='bx bx-x'></i></button>
+      <div class="work-modal-img">
+        <img id="modal-img" src="" alt="">
+      </div>
+      <div class="work-modal-body">
+        <div class="work-modal-meta">
+          <span class="work-modal-category" id="modal-category"></span>
+          <span class="mono-tag" id="modal-year"></span>
+        </div>
+        <h2 class="work-modal-title" id="modal-title"></h2>
+        <p class="work-modal-desc" id="modal-desc"></p>
+        <div class="work-modal-tags" id="modal-tags"></div>
+        <div class="work-modal-actions" id="modal-actions"></div>
+      </div>
+    </div>
+  </div>
+
   <!-- Scroll to top -->
   <button class="scroll-top" id="scroll-top" aria-label="Scroll to top">
     <i class='bx bx-chevron-up'></i>
   </button>
 
   <script src="./js/script.js"></script>
+  <script src="./js/sphere.js"></script>
 </body>
 </html>

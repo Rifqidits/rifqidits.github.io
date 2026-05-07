@@ -17,7 +17,7 @@
 }
 
 [data-theme="dark"] .pp-header {
-  background: rgba(13, 27, 46, 0.92);
+  background: rgba(28, 28, 30, 0.88);
   border-bottom-color: var(--color-border);
 }
 
@@ -117,8 +117,8 @@
 }
 
 [data-theme="dark"] .pp-metric-card {
-  background: rgba(56, 189, 248, 0.08);
-  border-color: rgba(56, 189, 248, 0.18);
+  background: rgba(41, 151, 255, 0.08);
+  border-color: rgba(41, 151, 255, 0.18);
 }
 
 .pp-metric-value {
@@ -159,7 +159,7 @@
 }
 
 [data-theme="dark"] .pp-tags span {
-  border-color: rgba(56, 189, 248, 0.2);
+  border-color: rgba(41, 151, 255, 0.2);
 }
 
 /* Divider */

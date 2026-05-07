@@ -24,9 +24,6 @@ darkToggle.addEventListener('click', () => {
 });
 
 // ── Element References ────────────────────────────────────────────────
-const header       = document.getElementById('navbar');
-const menuBtn      = document.getElementById('menu-icon');
-const navbar       = document.querySelector('.navbar');
 const loader       = document.getElementById('page-loader');
 const scrollTopBtn = document.getElementById('scroll-top');
 const contactForm  = document.getElementById('contact-form');
@@ -40,61 +37,30 @@ window.addEventListener('load', () => {
   }, 750);
 });
 
-// ── Scroll Spy Helper ─────────────────────────────────────────────────
-const sections = document.querySelectorAll('section[id]');
-const navLinks  = document.querySelectorAll('.navbar a[data-section]');
+// ── Scroll Spy (pill nav) ─────────────────────────────────────────────
+const sections  = document.querySelectorAll('section[id]');
+const pillLinks = document.querySelectorAll('.pill-link[data-section]');
 
 function updateActiveNav() {
-  let current = '';
+  const scrollY = window.scrollY;
+  let current = 'home';
   sections.forEach(section => {
-    const top = section.offsetTop - 130;
-    if (window.scrollY >= top) {
+    if (scrollY + 140 >= section.offsetTop) {
       current = section.id;
     }
   });
-  navLinks.forEach(link => {
+  pillLinks.forEach(link => {
     link.classList.toggle('active', link.dataset.section === current);
   });
 }
 
 // ── Single Scroll Handler ─────────────────────────────────────────────
 function onScroll() {
-  const y = window.scrollY;
-
-  // Navbar glassmorphism on scroll
-  header.classList.toggle('scrolled', y > 50);
-
-  // Scroll-to-top visibility
-  scrollTopBtn.classList.toggle('visible', y > 400);
-
-  // Close mobile menu on scroll
-  if (navbar.classList.contains('open')) {
-    navbar.classList.remove('open');
-    menuBtn.classList.remove('open');
-    menuBtn.setAttribute('aria-expanded', 'false');
-  }
-
-  // Active nav link
+  scrollTopBtn.classList.toggle('visible', window.scrollY > 400);
   updateActiveNav();
 }
 
 window.addEventListener('scroll', onScroll, { passive: true });
-
-// ── Mobile Menu ───────────────────────────────────────────────────────
-menuBtn.addEventListener('click', () => {
-  const isOpen = navbar.classList.toggle('open');
-  menuBtn.classList.toggle('open', isOpen);
-  menuBtn.setAttribute('aria-expanded', String(isOpen));
-});
-
-// Close when any nav link is clicked
-navbar.querySelectorAll('a').forEach(link => {
-  link.addEventListener('click', () => {
-    navbar.classList.remove('open');
-    menuBtn.classList.remove('open');
-    menuBtn.setAttribute('aria-expanded', 'false');
-  });
-});
 
 // ── Scroll to Top ─────────────────────────────────────────────────────
 scrollTopBtn.addEventListener('click', () => {
@@ -231,4 +197,54 @@ if (contactForm) {
       if (errorEl) errorEl.textContent = '';
     });
   });
+}
+
+// ── Work Card Modal ───────────────────────────────────────────────────
+const workModal  = document.getElementById('work-modal');
+const modalClose = document.getElementById('work-modal-close');
+
+document.querySelectorAll('.work-card').forEach(card => {
+  card.addEventListener('click', () => {
+    const img    = card.querySelector('.work-img img');
+    const detail = card.dataset.detail || '';
+    const links  = card.dataset.links ? JSON.parse(card.dataset.links) : [];
+
+    document.getElementById('modal-img').src              = img.src;
+    document.getElementById('modal-img').alt              = img.alt;
+    document.getElementById('modal-title').textContent    = card.querySelector('.work-title').textContent;
+    document.getElementById('modal-desc').textContent     = card.querySelector('.work-desc').textContent;
+    document.getElementById('modal-category').textContent = card.querySelector('.work-category').textContent;
+    document.getElementById('modal-year').textContent     = card.querySelector('.work-year').textContent;
+
+    const tagsEl = document.getElementById('modal-tags');
+    tagsEl.innerHTML = '';
+    card.querySelectorAll('.work-tags span').forEach(t => {
+      const s = document.createElement('span');
+      s.textContent = t.textContent;
+      tagsEl.appendChild(s);
+    });
+
+    const actionsEl = document.getElementById('modal-actions');
+    actionsEl.innerHTML = '';
+    if (detail) {
+      actionsEl.insertAdjacentHTML('beforeend',
+        `<a href="${detail}" class="modal-btn-primary">View Details <i class="bx bx-right-arrow-alt"></i></a>`);
+    }
+    links.forEach(({ href, icon, label }) => {
+      actionsEl.insertAdjacentHTML('beforeend',
+        `<a href="${href}" target="_blank" rel="noopener" class="modal-btn-secondary"><i class="bx ${icon}"></i> ${label}</a>`);
+    });
+
+    workModal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  });
+});
+
+modalClose?.addEventListener('click', closeWorkModal);
+workModal?.addEventListener('click', e => { if (e.target === workModal) closeWorkModal(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeWorkModal(); });
+
+function closeWorkModal() {
+  workModal?.classList.remove('open');
+  document.body.style.overflow = '';
 }

@@ -25,8 +25,28 @@ if (darkToggle) {
   });
 }
 
-// Page loader fade-out
 window.addEventListener('load', () => {
   const loader = document.getElementById('page-loader');
   if (loader) setTimeout(() => loader.classList.add('loaded'), 400);
+});
+
+document.querySelectorAll('.pp-code-section pre').forEach(pre => {
+  const btn = document.createElement('button');
+  btn.className = 'copy-btn';
+  btn.setAttribute('aria-label', 'Copy code');
+  btn.innerHTML = '<i class="bx bx-copy"></i><span>Copy</span>';
+  pre.style.position = 'relative';
+  pre.appendChild(btn);
+
+  btn.addEventListener('click', () => {
+    const code = pre.querySelector('code');
+    navigator.clipboard.writeText(code.textContent).then(() => {
+      btn.innerHTML = '<i class="bx bx-check"></i><span>Copied</span>';
+      btn.classList.add('copied');
+      setTimeout(() => {
+        btn.innerHTML = '<i class="bx bx-copy"></i><span>Copy</span>';
+        btn.classList.remove('copied');
+      }, 2000);
+    });
+  });
 });

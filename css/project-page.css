@@ -189,6 +189,36 @@
   line-height: 1.65 !important;
 }
 
+.copy-btn {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.3rem 0.7rem;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 6px;
+  color: rgba(255, 255, 255, 0.55);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+  z-index: 1;
+}
+.copy-btn:hover {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.22);
+  color: rgba(255, 255, 255, 0.85);
+}
+.copy-btn.copied {
+  background: rgba(41, 151, 255, 0.2);
+  border-color: rgba(41, 151, 255, 0.4);
+  color: #2997ff;
+}
+.copy-btn i { font-size: 0.8rem; }
+
 .pp-actions {
   display: flex;
   gap: 1rem;

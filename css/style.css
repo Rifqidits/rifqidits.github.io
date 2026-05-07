@@ -494,11 +494,6 @@ a:focus-visible {
 
 .hero-photo {
   width: 100%;
-  aspect-ratio: 3/4;
-  object-fit: cover;
-  object-position: top;
-  border-radius: var(--radius-xl);
-  box-shadow: var(--shadow-lg);
 }
 
 .hero-visual::after {

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cloud PACS — Chest X-Ray AI — Rifqi Aditya</title>
+  <meta name="description" content="14-class chest pathology detection with Grad-CAM explainability, deployed on GCP Healthcare API and Cloud Run at 100% uptime.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚛</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="../../css/project-page.css">
+</head>
+<body>
+
+  <div class="page-loader" id="page-loader" aria-hidden="true">
+    <div class="loader-inner"><span class="loader-mono">RA</span></div>
+  </div>
+
+  <header class="pp-header" id="navbar">
+    <a href="/" class="logo">
+      <span class="logo-mono">RA</span>
+      <span class="logo-full">Rifqi Aditya</span>
+    </a>
+    <div class="header-actions">
+      <button class="dark-toggle" id="dark-toggle" aria-label="Toggle dark mode">
+        <i class='bx bx-moon'></i>
+      </button>
+    </div>
+  </header>
+
+  <main class="pp-main">
+
+    <div class="pp-breadcrumb">
+      <a href="/#projects" class="pp-back"><i class='bx bx-arrow-back'></i> Projects</a>
+    </div>
+
+    <section class="pp-hero">
+      <div class="pp-hero-meta">
+        <span class="mono-tag">2024</span>
+        <span class="pp-type">Computer Vision · Medical AI · GCP</span>
+      </div>
+      <h1>Cloud PACS — <em>X-Ray AI</em></h1>
+      <p class="pp-subtitle">14-class chest pathology detection with Grad-CAM explainability, deployed on GCP at 100% uptime.</p>
+    </section>
+
+    <section class="pp-section">
+      <p>
+        A production-deployed AI system for clinical chest radiograph analysis, trained on the <strong>NIH ChestX-ray14 dataset</strong> (24,999 images). The core model is <strong>DenseNet121</strong> fine-tuned for 14-class multi-label pathology detection — Atelectasis, Cardiomegaly, Effusion, Pneumonia, and 10 others — using per-class weighted binary cross-entropy to address severe class imbalance.
+      </p>
+      <p>
+        A 2-stage preprocessing pipeline combines <strong>CLAHE contrast enhancement</strong> with featurewise normalization (Keras ImageDataGenerator), improving X-ray feature quality and boosting interpretability metrics by 25% on the held-out test set.
+      </p>
+      <p>
+        A <strong>Grad-CAM explainability module</strong> (ResNet50, conv5_block3_out) generates class-activation heatmaps overlaid on X-rays, making model decisions interpretable for clinicians. The full system runs on GCP: Healthcare API (DICOM store), Cloud Functions for DICOM-to-PNG conversion, Cloud Storage for multi-stage pipeline state, and Cloud Run for the OHIF Viewer — enabling cross-hospital access.
+      </p>
+    </section>
+
+    <div class="pp-metrics">
+      <div class="pp-metric-card">
+        <span class="pp-metric-value">&gt;90%</span>
+        <span class="pp-metric-label">AUC (all 14)</span>
+      </div>
+      <div class="pp-metric-card">
+        <span class="pp-metric-value">14</span>
+        <span class="pp-metric-label">Pathologies</span>
+      </div>
+      <div class="pp-metric-card">
+        <span class="pp-metric-value">24,999</span>
+        <span class="pp-metric-label">Training Images</span>
+      </div>
+      <div class="pp-metric-card">
+        <span class="pp-metric-value">100%</span>
+        <span class="pp-metric-label">GCP Uptime</span>
+      </div>
+    </div>
+
+    <div class="pp-tags">
+      <span>TensorFlow</span><span>DenseNet121</span><span>Grad-CAM</span><span>CLAHE</span><span>GCP</span><span>DICOM</span><span>Cloud Run</span>
+    </div>
+
+    <hr class="pp-divider">
+
+    <section class="pp-code-section">
+      <h2>Implementation Highlight</h2>
+      <span class="pp-code-caption">Grad-CAM heatmap generation — class-activation maps for clinician-facing explainability</span>
+      <pre><code class="language-python">def make_gradcam_heatmap(img_array, model, last_conv_layer):
+    grad_model = tf.keras.Model(
+        model.inputs,
+        [model.get_layer(last_conv_layer).output, model.output]
+    )
+    with tf.GradientTape() as tape:
+        conv_out, preds = grad_model(img_array)
+        loss = preds[:, tf.argmax(preds[0])]
+
+    grads = tape.gradient(loss, conv_out)
+    pooled = tf.reduce_mean(grads, axis=(0, 1, 2))
+    heatmap = conv_out[0] @ pooled[..., tf.newaxis]
+    return tf.nn.relu(tf.squeeze(heatmap)).numpy()</code></pre>
+    </section>
+
+    <hr class="pp-divider">
+
+    <div class="pp-actions">
+      <a href="https://github.com/Rifqidits/C24-DA" target="_blank" rel="noopener" class="btn btn-primary">
+        <i class='bx bxl-github'></i> GitHub
+      </a>
+    </div>
+
+  </main>
+
+  <footer class="pp-footer">
+    <p>&copy; 2026 Rifqi Aditya &nbsp;·&nbsp; <a href="/">rifqidits.github.io</a></p>
+  </footer>
+
+  <script src="../../js/project-page.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+</body>
+</html>

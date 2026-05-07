@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>terTATa-LLM — Rifqi Aditya</title>
+  <meta name="description" content="Financial Q&A system for Indonesia's 66M+ MSME sector. Mistral-7B fine-tuned via LoRA. Top 10 nationally, Datathon 2025.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚛</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="../../css/project-page.css">
+</head>
+<body>
+
+  <div class="page-loader" id="page-loader" aria-hidden="true">
+    <div class="loader-inner"><span class="loader-mono">RA</span></div>
+  </div>
+
+  <header class="pp-header" id="navbar">
+    <a href="/" class="logo">
+      <span class="logo-mono">RA</span>
+      <span class="logo-full">Rifqi Aditya</span>
+    </a>
+    <div class="header-actions">
+      <button class="dark-toggle" id="dark-toggle" aria-label="Toggle dark mode">
+        <i class='bx bx-moon'></i>
+      </button>
+    </div>
+  </header>
+
+  <main class="pp-main">
+
+    <div class="pp-breadcrumb">
+      <a href="/#projects" class="pp-back"><i class='bx bx-arrow-back'></i> Projects</a>
+    </div>
+
+    <section class="pp-hero">
+      <div class="pp-hero-meta">
+        <span class="mono-tag">2025</span>
+        <span class="pp-type">LLM · Fine-tuning · NLP</span>
+      </div>
+      <h1>terTATa-<em>LLM</em></h1>
+      <p class="pp-subtitle">Financial question-answering for Indonesia's 66M+ MSME operators — Top 10 nationally, Datathon 2025.</p>
+    </section>
+
+    <section class="pp-section">
+      <p>
+        terTATa-LLM is a financial question-answering system built for Indonesia's 66 million+ micro, small, and medium enterprise (MSME) operators. It answers hybrid tabular-text queries over structured financial reports — a task that demands simultaneous understanding of natural language and numeric tables.
+      </p>
+      <p>
+        The base model is <strong>Nous-Hermes-2-Mistral-7B-DPO</strong>, fine-tuned via <strong>LoRA (r=64, α=16)</strong> with 4-bit NF4 quantization on 13,215 TAT-QA financial table-text question-answer pairs. Only 0.72% of the model's 3.78 billion parameters were updated during training, making the adaptation highly efficient without sacrificing domain performance.
+      </p>
+      <p>
+        The model uses a 6-step structured reasoning chain for hybrid tabular-text queries. The final adapter was deployed on Hugging Face Spaces and evaluated on a 1,669-sample held-out test set, achieving F1 = 46.62.
+      </p>
+    </section>
+
+    <div class="pp-metrics">
+      <div class="pp-metric-card">
+        <span class="pp-metric-value">46.62</span>
+        <span class="pp-metric-label">F1 Score</span>
+      </div>
+      <div class="pp-metric-card">
+        <span class="pp-metric-value">0.72%</span>
+        <span class="pp-metric-label">Params Trained</span>
+      </div>
+      <div class="pp-metric-card">
+        <span class="pp-metric-value">13K+</span>
+        <span class="pp-metric-label">Training Pairs</span>
+      </div>
+      <div class="pp-metric-card">
+        <span class="pp-metric-value">Top 10</span>
+        <span class="pp-metric-label">Nationally</span>
+      </div>
+    </div>
+
+    <div class="pp-tags">
+      <span>LoRA</span><span>LLM</span><span>Hugging Face</span><span>PEFT</span><span>TAT-QA</span><span>Python</span><span>4-bit NF4</span>
+    </div>
+
+    <hr class="pp-divider">
+
+    <section class="pp-code-section">
+      <h2>Implementation Highlight</h2>
+      <span class="pp-code-caption">LoRA configuration — only 0.72% of 3.78B parameters trained</span>
+      <pre><code class="language-python">from peft import LoraConfig, get_peft_model
+
+lora_config = LoraConfig(
+    r=64,
+    lora_alpha=16,
+    target_modules=["q_proj", "v_proj"],
+    lora_dropout=0.05,
+    bias="none",
+    task_type="CAUSAL_LM",
+)
+
+model = get_peft_model(base_model, lora_config)
+model.print_trainable_parameters()
+# trainable params: 27,262,976 || all params: 3,785,908,224
+# trainable%: 0.7202</code></pre>
+    </section>
+
+    <hr class="pp-divider">
+
+    <div class="pp-actions">
+      <a href="https://github.com/Barudak-Learning/terTATa" target="_blank" rel="noopener" class="btn btn-primary">
+        <i class='bx bxl-github'></i> GitHub
+      </a>
+    </div>
+
+  </main>
+
+  <footer class="pp-footer">
+    <p>&copy; 2026 Rifqi Aditya &nbsp;·&nbsp; <a href="/">rifqidits.github.io</a></p>
+  </footer>
+
+  <script src="../../js/project-page.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+</body>
+</html>

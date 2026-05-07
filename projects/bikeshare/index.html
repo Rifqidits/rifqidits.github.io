@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Capital Bikeshare Dashboard — Rifqi Aditya</title>
+  <meta name="description" content="Interactive Streamlit dashboard analysing ridership patterns, weather correlations, and station demand across Washington D.C.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚛</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="../../css/project-page.css">
+</head>
+<body>
+
+  <div class="page-loader" id="page-loader" aria-hidden="true">
+    <div class="loader-inner"><span class="loader-mono">RA</span></div>
+  </div>
+
+  <header class="pp-header" id="navbar">
+    <a href="/" class="logo">
+      <span class="logo-mono">RA</span>
+      <span class="logo-full">Rifqi Aditya</span>
+    </a>
+    <div class="header-actions">
+      <button class="dark-toggle" id="dark-toggle" aria-label="Toggle dark mode">
+        <i class='bx bx-moon'></i>
+      </button>
+    </div>
+  </header>
+
+  <main class="pp-main">
+
+    <div class="pp-breadcrumb">
+      <a href="/#projects" class="pp-back"><i class='bx bx-arrow-back'></i> Projects</a>
+    </div>
+
+    <section class="pp-hero">
+      <div class="pp-hero-meta">
+        <span class="mono-tag">2023</span>
+        <span class="pp-type">Data Analysis · Visualization · Streamlit</span>
+      </div>
+      <h1>Capital Bikeshare <em>Dashboard</em></h1>
+      <p class="pp-subtitle">Interactive ridership analytics across Washington D.C. — weather correlations, seasonal patterns, and station demand.</p>
+    </section>
+
+    <section class="pp-section">
+      <p>
+        An interactive Streamlit dashboard analysing the <strong>Capital Bikeshare dataset</strong> from Washington D.C. The dashboard surfaces ridership patterns across seasons, correlations between weather variables (temperature, humidity, wind speed) and bike demand, and comparative station-level usage trends.
+      </p>
+      <p>
+        Built with <strong>Pandas</strong> for data processing and <strong>Plotly Express</strong> for interactive charts. Streamlit's <code>@st.cache_data</code> decorator ensures fast re-renders when filters change. Key insights include the strong positive correlation between temperature and ridership, summer demand peaks, and a clear weekday-vs-weekend divergence in usage patterns.
+      </p>
+    </section>
+
+    <div class="pp-tags">
+      <span>Python</span><span>Streamlit</span><span>Pandas</span><span>Plotly</span><span>Data Analysis</span><span>EDA</span>
+    </div>
+
+    <hr class="pp-divider">
+
+    <section class="pp-code-section">
+      <h2>Implementation Highlight</h2>
+      <span class="pp-code-caption">Cached data loader + Plotly seasonal ridership chart</span>
+      <pre><code class="language-python">@st.cache_data
+def load_data():
+    df = pd.read_csv('day.csv')
+    df['dteday'] = pd.to_datetime(df['dteday'])
+    df['season_label'] = df['season'].map(
+        {1: 'Spring', 2: 'Summer', 3: 'Fall', 4: 'Winter'})
+    return df
+
+df = load_data()
+
+fig = px.line(
+    df, x='dteday', y='cnt',
+    color='season_label',
+    title='Daily Ridership by Season',
+    labels={'cnt': 'Total Rides', 'dteday': 'Date'}
+)
+st.plotly_chart(fig, use_container_width=True)</code></pre>
+    </section>
+
+    <hr class="pp-divider">
+
+    <div class="pp-actions">
+      <a href="https://bike-sharing-dataset-qidits.streamlit.app/" target="_blank" rel="noopener" class="btn btn-primary">
+        <i class='bx bx-link-external'></i> Live Demo
+      </a>
+    </div>
+
+  </main>
+
+  <footer class="pp-footer">
+    <p>&copy; 2026 Rifqi Aditya &nbsp;·&nbsp; <a href="/">rifqidits.github.io</a></p>
+  </footer>
+
+  <script src="../../js/project-page.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+</body>
+</html>

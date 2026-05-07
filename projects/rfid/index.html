@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RFID Car Parking System — Rifqi Aditya</title>
+  <meta name="description" content="RFID access control on Arduino Uno with EEPROM-persistent multi-card authentication, Hall-effect occupancy sensing, and I2C LCD display.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚛</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="../../css/project-page.css">
+</head>
+<body>
+
+  <div class="page-loader" id="page-loader" aria-hidden="true">
+    <div class="loader-inner"><span class="loader-mono">RA</span></div>
+  </div>
+
+  <header class="pp-header" id="navbar">
+    <a href="/" class="logo">
+      <span class="logo-mono">RA</span>
+      <span class="logo-full">Rifqi Aditya</span>
+    </a>
+    <div class="header-actions">
+      <button class="dark-toggle" id="dark-toggle" aria-label="Toggle dark mode">
+        <i class='bx bx-moon'></i>
+      </button>
+    </div>
+  </header>
+
+  <main class="pp-main">
+
+    <div class="pp-breadcrumb">
+      <a href="/#projects" class="pp-back"><i class='bx bx-arrow-back'></i> Projects</a>
+    </div>
+
+    <section class="pp-hero">
+      <div class="pp-hero-meta">
+        <span class="mono-tag">2023</span>
+        <span class="pp-type">Embedded Systems · C++ · Arduino</span>
+      </div>
+      <h1>RFID <em>Parking</em> System</h1>
+      <p class="pp-subtitle">Multi-card RFID access control with EEPROM persistence, Hall-effect occupancy sensing, and real-time slot display on Arduino Uno.</p>
+    </section>
+
+    <section class="pp-section">
+      <p>
+        An Arduino-based car parking management system combining access control, occupancy sensing, and a real-time physical interface. The <strong>MFRC522 RFID reader (SPI)</strong> authenticates vehicles against authorized card UIDs stored in <strong>EEPROM</strong> — persisting across power cycles without reflashing. A master-card programming mode allows runtime addition and removal of cards.
+      </p>
+      <p>
+        The <strong>KY-024 Hall effect sensor</strong> (analog A0 + digital D2) detects slot occupancy via magnetic field change. An infrared sensor triggers automatic gate closure on vehicle exit. Gate actuation uses a <strong>relay-controlled solenoid</strong> with a 10-second access window, plus a servo motor for the physical barrier.
+      </p>
+      <p>
+        Feedback is provided by a red/green LED pair for occupancy indication and a <strong>16×2 I2C LCD</strong> for live slot availability display. All components are coordinated in a single event loop, with a buzzer for audio feedback on access-granted and programming-mode events.
+      </p>
+    </section>
+
+    <div class="pp-tags">
+      <span>C++</span><span>Arduino</span><span>RFID</span><span>EEPROM</span><span>Hall Sensor</span><span>I2C</span><span>SPI</span><span>Servo</span>
+    </div>
+
+    <hr class="pp-divider">
+
+    <section class="pp-code-section">
+      <h2>Implementation Highlight</h2>
+      <span class="pp-code-caption">EEPROM-backed UID authentication — runtime card registration without reflashing</span>
+      <pre><code class="language-cpp">void checkAccess(byte *uid) {
+  byte storedCount = EEPROM.read(0);
+  for (byte i = 0; i < storedCount; i++) {
+    bool match = true;
+    for (byte j = 0; j < 4; j++) {
+      if (uid[j] != EEPROM.read(1 + i * 4 + j)) {
+        match = false;
+        break;
+      }
+    }
+    if (match) { grantAccess(); return; }
+  }
+  denyAccess();
+}
+
+void grantAccess() {
+  digitalWrite(RELAY_PIN, HIGH);
+  myServo.write(90);          // open gate
+  lcd.print("Access Granted");
+  tone(BUZZER_PIN, 1000, 200);
+  delay(ACCESS_WINDOW_MS);
+  digitalWrite(RELAY_PIN, LOW);
+  myServo.write(0);           // close gate
+}</code></pre>
+    </section>
+
+  </main>
+
+  <footer class="pp-footer">
+    <p>&copy; 2026 Rifqi Aditya &nbsp;·&nbsp; <a href="/">rifqidits.github.io</a></p>
+  </footer>
+
+  <script src="../../js/project-page.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-clike.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-cpp.min.js"></script>
+</body>
+</html>

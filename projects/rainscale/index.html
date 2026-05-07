@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RainScale-EDSR — Rifqi Aditya</title>
+  <meta name="description" content="EDSR CNN for 2.5× spatial super-resolution of daily rainfall over Java Island. RMSE 1.71 mm/day, R² 0.967.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚛</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="../../css/project-page.css">
+</head>
+<body>
+
+  <div class="page-loader" id="page-loader" aria-hidden="true">
+    <div class="loader-inner"><span class="loader-mono">RA</span></div>
+  </div>
+
+  <header class="pp-header" id="navbar">
+    <a href="/" class="logo">
+      <span class="logo-mono">RA</span>
+      <span class="logo-full">Rifqi Aditya</span>
+    </a>
+    <div class="header-actions">
+      <button class="dark-toggle" id="dark-toggle" aria-label="Toggle dark mode">
+        <i class='bx bx-moon'></i>
+      </button>
+    </div>
+  </header>
+
+  <main class="pp-main">
+
+    <div class="pp-breadcrumb">
+      <a href="/#projects" class="pp-back"><i class='bx bx-arrow-back'></i> Projects</a>
+    </div>
+
+    <section class="pp-hero">
+      <div class="pp-hero-meta">
+        <span class="mono-tag">2025</span>
+        <span class="pp-type">Deep Learning · Climate Science · Physics</span>
+      </div>
+      <h1>RainScale-<em>EDSR</em></h1>
+      <p class="pp-subtitle">2.5× spatial super-resolution of daily rainfall over Java Island — bridging coarse climate output to operational hydrology precision.</p>
+    </section>
+
+    <section class="pp-section">
+      <p>
+        RainScale-EDSR applies super-resolution convolutional networks to the problem of spatial downscaling in climate science. The model takes coarse-resolution (0.25°) daily rainfall data from <strong>MSWEP V2</strong> and upscales it to 0.1° — a 2.5× spatial leap that bridges global climate model output and the precision required for operational hydrology over Java Island.
+      </p>
+      <p>
+        The architecture is <strong>EDSR (Enhanced Deep Super-Resolution)</strong> with 8 residual blocks adapted for single-channel atmospheric data, plus a Conv2DTranspose 2× upsampling head. A companion <strong>ResNet-SR</strong> baseline was trained for comparison.
+      </p>
+      <p>
+        Training used 5,113 frames through a 5-stage preprocessing pipeline: log-ε transform, stratified RobustScaling by rain-intensity tier, outlier clipping, Sobel/Gaussian spatial feature extraction, and MinMax normalization. Evaluated on 1,096 held-out test frames.
+      </p>
+    </section>
+
+    <div class="pp-metrics">
+      <div class="pp-metric-card">
+        <span class="pp-metric-value">1.71</span>
+        <span class="pp-metric-label">RMSE mm/day</span>
+      </div>
+      <div class="pp-metric-card">
+        <span class="pp-metric-value">0.967</span>
+        <span class="pp-metric-label">R²</span>
+      </div>
+      <div class="pp-metric-card">
+        <span class="pp-metric-value">0.978</span>
+        <span class="pp-metric-label">KGE</span>
+      </div>
+      <div class="pp-metric-card">
+        <span class="pp-metric-value">2.5×</span>
+        <span class="pp-metric-label">Spatial Scale</span>
+      </div>
+    </div>
+
+    <div class="pp-tags">
+      <span>TensorFlow</span><span>EDSR</span><span>ResNet-SR</span><span>MSWEP</span><span>Physics</span><span>xarray</span><span>NumPy</span>
+    </div>
+
+    <hr class="pp-divider">
+
+    <section class="pp-code-section">
+      <h2>Implementation Highlight</h2>
+      <span class="pp-code-caption">EDSR residual block + 2× Conv2DTranspose upsampling head</span>
+      <pre><code class="language-python">def residual_block(x, filters=64):
+    skip = x
+    x = Conv2D(filters, 3, padding='same', activation='relu')(x)
+    x = Conv2D(filters, 3, padding='same')(x)
+    return Add()([x, skip])
+
+def build_edsr(num_res_blocks=8, filters=64, scale=2):
+    inputs = Input(shape=(None, None, 1))
+    x = r = Conv2D(filters, 3, padding='same')(inputs)
+    for _ in range(num_res_blocks):
+        x = residual_block(x, filters)
+    x = Add()([Conv2D(filters, 3, padding='same')(x), r])
+    x = Conv2DTranspose(filters, 3, strides=scale, padding='same')(x)
+    return Model(inputs, Conv2D(1, 3, padding='same')(x))</code></pre>
+    </section>
+
+    <hr class="pp-divider">
+
+    <div class="pp-actions">
+      <a href="https://github.com/Rifqidits/RainScale-EDSR" target="_blank" rel="noopener" class="btn btn-primary">
+        <i class='bx bxl-github'></i> GitHub
+      </a>
+    </div>
+
+  </main>
+
+  <footer class="pp-footer">
+    <p>&copy; 2026 Rifqi Aditya &nbsp;·&nbsp; <a href="/">rifqidits.github.io</a></p>
+  </footer>
+
+  <script src="../../js/project-page.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+</body>
+</html>

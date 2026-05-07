@@ -31,12 +31,16 @@ window.addEventListener('load', () => {
 });
 
 document.querySelectorAll('.pp-code-section pre').forEach(pre => {
+  const wrap = document.createElement('div');
+  wrap.className = 'code-block-wrap';
+  pre.parentNode.insertBefore(wrap, pre);
+  wrap.appendChild(pre);
+
   const btn = document.createElement('button');
   btn.className = 'copy-btn';
   btn.setAttribute('aria-label', 'Copy code');
   btn.innerHTML = '<i class="bx bx-copy"></i><span>Copy</span>';
-  pre.style.position = 'relative';
-  pre.appendChild(btn);
+  wrap.appendChild(btn);
 
   btn.addEventListener('click', () => {
     const code = pre.querySelector('code');

@@ -189,6 +189,10 @@
   line-height: 1.65 !important;
 }
 
+.code-block-wrap {
+  position: relative;
+}
+
 .copy-btn {
   position: absolute;
   top: 0.75rem;

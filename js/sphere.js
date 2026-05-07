@@ -4,7 +4,6 @@
 
   const tags = [...container.querySelectorAll('.skill-tag')];
 
-  // Inject boxicon elements from data-icon attribute
   tags.forEach(tag => {
     const icon = document.createElement('i');
     icon.className = 'bx ' + tag.dataset.icon;
@@ -16,7 +15,6 @@
   let velY = 0.006, velX = 0.0008;
   let dragging = false, lastX = 0, lastY = 0;
 
-  // Fibonacci sphere point distribution
   const golden = Math.PI * (3 - Math.sqrt(5));
   tags.forEach((tag, i) => {
     const y = 1 - (i / (tags.length - 1)) * 2;
@@ -37,10 +35,8 @@
     const cosX = Math.cos(rotX), sinX = Math.sin(rotX);
 
     tags.forEach(tag => {
-      // Rotate Y axis
       const x1 = tag._ox * cosY + tag._oz * sinY;
       const z1 = -tag._ox * sinY + tag._oz * cosY;
-      // Rotate X axis
       const y2 = tag._oy * cosX - z1 * sinX;
       const z2 = tag._oy * sinX + z1 * cosX;
 
@@ -58,7 +54,6 @@
     requestAnimationFrame(render);
   }
 
-  // Mouse drag
   container.addEventListener('mousedown', e => {
     dragging = true;
     lastX = e.clientX;
@@ -81,7 +76,6 @@
     }
   });
 
-  // Touch drag
   container.addEventListener('touchstart', e => {
     dragging = true;
     lastX = e.touches[0].clientX;

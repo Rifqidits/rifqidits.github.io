@@ -1,4 +1,3 @@
-// ── Dark Mode ─────────────────────────────────────────────────────────
 const darkToggle = document.getElementById('dark-toggle');
 const htmlEl     = document.documentElement;
 
@@ -23,21 +22,18 @@ darkToggle.addEventListener('click', () => {
   updateToggleIcon(next);
 });
 
-// ── Element References ────────────────────────────────────────────────
 const loader       = document.getElementById('page-loader');
 const scrollTopBtn = document.getElementById('scroll-top');
 const contactForm  = document.getElementById('contact-form');
 const submitBtn    = document.getElementById('submit-btn');
 const formSuccess  = document.getElementById('form-success');
 
-// ── Page Loader ───────────────────────────────────────────────────────
 window.addEventListener('load', () => {
   setTimeout(() => {
     loader.classList.add('loaded');
   }, 750);
 });
 
-// ── Scroll Spy (pill nav) ─────────────────────────────────────────────
 const sections  = document.querySelectorAll('section[id]');
 const pillLinks = document.querySelectorAll('.pill-link[data-section]');
 
@@ -54,7 +50,6 @@ function updateActiveNav() {
   });
 }
 
-// ── Single Scroll Handler ─────────────────────────────────────────────
 function onScroll() {
   scrollTopBtn.classList.toggle('visible', window.scrollY > 400);
   updateActiveNav();
@@ -62,12 +57,10 @@ function onScroll() {
 
 window.addEventListener('scroll', onScroll, { passive: true });
 
-// ── Scroll to Top ─────────────────────────────────────────────────────
 scrollTopBtn.addEventListener('click', () => {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
-// ── Intersection Observer — Entrance Animations ───────────────────────
 const animObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -84,7 +77,6 @@ document.querySelectorAll(
   '[data-animate], .timeline-item, .project-card, .portfolio-card, .skill-category'
 ).forEach(el => animObserver.observe(el));
 
-// ── Stats Counter Animation ───────────────────────────────────────────
 const statNums = document.querySelectorAll('.stat-num[data-target]');
 
 const statsObserver = new IntersectionObserver((entries) => {
@@ -113,12 +105,10 @@ const statsObserver = new IntersectionObserver((entries) => {
 
 statNums.forEach(el => statsObserver.observe(el));
 
-// ── Contact Form — Formspree with Validation ──────────────────────────
 if (contactForm) {
   contactForm.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    // Clear previous errors & success
     contactForm.querySelectorAll('.form-error').forEach(el => (el.textContent = ''));
     contactForm.querySelectorAll('.error').forEach(el => el.classList.remove('error'));
     if (formSuccess) {
@@ -126,7 +116,6 @@ if (contactForm) {
       formSuccess.style.color = '';
     }
 
-    // Client-side validation
     const nameEl    = contactForm.querySelector('#name');
     const emailEl   = contactForm.querySelector('#email');
     const messageEl = contactForm.querySelector('#message');
@@ -156,7 +145,6 @@ if (contactForm) {
 
     if (!valid) return;
 
-    // Submit to Formspree
     submitBtn.classList.add('loading');
     submitBtn.disabled = true;
 
@@ -189,7 +177,6 @@ if (contactForm) {
     }
   });
 
-  // Clear field error on input
   contactForm.querySelectorAll('input, textarea').forEach(field => {
     field.addEventListener('input', () => {
       field.classList.remove('error');
@@ -199,7 +186,6 @@ if (contactForm) {
   });
 }
 
-// ── Work Card Modal ───────────────────────────────────────────────────
 const workModal  = document.getElementById('work-modal');
 const modalClose = document.getElementById('work-modal-close');
 
